@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DSGNL MEDIA — Studio de Producție Video</title>
+  <meta name="description" content="DSGNL Media — Editare video, producție 3D, reeluri și trailere."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet"/>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<!-- FLOAT PHONE -->
+<a href="tel:+37368787316" class="fp" id="fp">
+  <span class="fp-ico">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+  </span>
+  <span class="fp-num">+373 68 787 316</span>
+</a>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="#hero" class="n-logo">DSGNL<span>MEDIA</span></a>
+    <ul class="n-links">
+      <li><a href="#gallery">SHOWREEL</a></li>
+      <li><a href="#services">SERVICII</a></li>
+      <li><a href="#process">PROCES</a></li>
+      <li><a href="#contact" class="n-cta">CONTACT →</a></li>
+    </ul>
+    <button class="n-burger" id="burger" aria-label="Menu">
+      <span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="n-drawer" id="drawer">
+  <a href="#gallery">SHOWREEL</a>
+  <a href="#services">SERVICII</a>
+  <a href="#process">PROCES</a>
+  <a href="#contact">CONTACT →</a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="h-wrap">
+
+    <!-- LEFT -->
+    <div class="h-left">
+      <div class="h-index" id="hi">[ STUDIO — MD — 2024 ]</div>
+      <h1 class="h-title" id="ht">
+        <span class="hl hl1"><span class="hlw">CREĂM</span></span>
+        <span class="hl hl2 hl-acc"><span class="hlw" id="tw">POVEȘTI</span></span>
+        <span class="hl hl3"><span class="hlw">VIZUALE</span></span>
+      </h1>
+      <div class="h-ticker" id="htk">
+        <span>EDITARE VIDEO</span><span class="tx">×</span>
+        <span>PRODUCȚIE 3D</span><span class="tx">×</span>
+        <span>REELURI</span><span class="tx">×</span>
+        <span>TRAILERE</span>
+      </div>
+      <div class="h-cta" id="hcta">
+        <a href="#gallery" class="b b-y">↓ SHOWREEL</a>
+        <a href="#contact" class="b b-o">OFERTĂ →</a>
+      </div>
+      <div class="h-stats" id="hst">
+        <div class="hst-item"><span class="hst-n" data-n="120">0</span><span class="hst-u">+</span><span class="hst-l">PROIECTE</span></div>
+        <span class="hst-sep">/</span>
+        <div class="hst-item"><span class="hst-n" data-n="5">0</span><span class="hst-u">+</span><span class="hst-l">ANI XP</span></div>
+        <span class="hst-sep">/</span>
+        <div class="hst-item"><span class="hst-n" data-n="98">0</span><span class="hst-u">%</span><span class="hst-l">MULȚUMIȚI</span></div>
+      </div>
+    </div>
+
+    <!-- RIGHT: mosaic -->
+    <div class="h-right" id="hright">
+      <div class="mosaic">
+        <div class="mc mc-a"><video autoplay muted loop playsinline><source src="JM3MR_ROBOTAI_16x9.webm" type="video/webm"/><source src="JM3MR_ROBOTAI_16x9.mp4" type="video/mp4"/></video><span class="mlabel">PRODUCȚIE 3D</span></div>
+        <div class="mc mc-b"><video autoplay muted loop playsinline><source src="SM_Sofa3D_9x16.webm" type="video/webm"/><source src="SM_Sofa3D_9x16.mp4" type="video/mp4"/></video><span class="mlabel">REEL 3D</span></div>
+        <div class="mc mc-c"><video autoplay muted loop playsinline><source src="JM3MR_CHRISTMAS_BALL_16x9.webm" type="video/webm"/><source src="JM3MR_CHRISTMAS_BALL_16x9.mp4" type="video/mp4"/></video><span class="mlabel">MOTION</span></div>
+      </div>
+      <div class="h-corner">DSGNL<br/>MEDIA<br/>®2024</div>
+    </div>
+
+  </div>
+  <div class="h-scroll" id="hscr">
+    <span class="hs-line"></span>
+    <span class="hs-txt">SCROLL</span>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="sec-label">
+    <span class="s-num">002</span>
+    <span class="s-slash">/</span>
+    <span class="s-name">GALERIE SHOWREEL</span>
+    <span class="s-rule"></span>
+  </div>
+
+  <div class="g-cols">
+
+    <div class="gi landscape" data-label="Robot AI" data-type="PRODUCȚIE 3D">
+      <div class="gi-media"><video muted loop playsinline autoplay preload="auto"><source src="JM3MR_ROBOTAI_16x9.webm" type="video/webm"/><source src="JM3MR_ROBOTAI_16x9.mp4" type="video/mp4"/></video><div class="gi-ov"><span>▶ PLAY</span></div></div>
+      <div class="gi-foot"><span class="gi-tit">Robot AI</span><span class="gi-cat">PRODUCȚIE 3D</span></div>
+    </div>
+
+    <div class="gi portrait" data-label="Tourists Reel" data-type="SOCIAL MEDIA">
+      <div class="gi-media"><video muted loop playsinline autoplay preload="auto"><source src="SM 2 Tourists 9x16.webm" type="video/webm"/><source src="SM 2 Tourists 9x16.mp4" type="video/mp4"/></video><div class="gi-ov"><span>▶ PLAY</span></div></div>
+      <div class="gi-foot"><span class="gi-tit">Tourists Reel</span><span class="gi-cat">SOCIAL MEDIA</span></div>
+    </div>
+
+    <div class="gi landscape" data-label="Christmas Ball" data-type="MOTION DESIGN">
+      <div class="gi-media"><video muted loop playsinline autoplay preload="auto"><source src="JM3MR_CHRISTMAS_BALL_16x9.webm" type="video/webm"/><source src="JM3MR_CHRISTMAS_BALL_16x9.mp4" type="video/mp4"/></video><div class="gi-ov"><span>▶ PLAY</span></div></div>
+      <div class="gi-foot"><span class="gi-tit">Christmas Ball</span><span class="gi-cat">MOTION DESIGN</span></div>
+    </div>
+
+    <div class="gi portrait" data-label="Sofa 3D" data-type="REEL 3D">
+      <div class="gi-media"><video muted loop playsinline autoplay preload="auto"><source src="SM_Sofa3D_9x16.webm" type="video/webm"/><source src="SM_Sofa3D_9x16.mp4" type="video/mp4"/></video><div class="gi-ov"><span>▶ PLAY</span></div></div>
+      <div class="gi-foot"><span class="gi-tit">Sofa 3D</span><span class="gi-cat">REEL 3D</span></div>
+    </div>
+
+    <div class="gi landscape" data-label="Luggage Campaign" data-type="EDITARE VIDEO">
+      <div class="gi-media"><video muted loop playsinline autoplay preload="auto"><source src="luggage_1.webm" type="video/webm"/><source src="luggage_1.mp4" type="video/mp4"/></video><div class="gi-ov"><span>▶ PLAY</span></div></div>
+      <div class="gi-foot"><span class="gi-tit">Luggage Campaign</span><span class="gi-cat">EDITARE VIDEO</span></div>
+    </div>
+
+    <div class="gi portrait" data-label="Amazon Ads" data-type="RECLAME">
+      <div class="gi-media"><video muted loop playsinline autoplay preload="auto"><source src="SM Amazon Type Ads 9x16.webm" type="video/webm"/><source src="SM Amazon Type Ads 9x16.mp4" type="video/mp4"/></video><div class="gi-ov"><span>▶ PLAY</span></div></div>
+      <div class="gi-foot"><span class="gi-tit">Amazon Ads</span><span class="gi-cat">RECLAME</span></div>
+    </div>
+
+    <div class="gi landscape" data-label="Fly Mobas" data-type="TRAILER">
+      <div class="gi-media"><video muted loop playsinline autoplay preload="auto"><source src="sm fly mobas.webm" type="video/webm"/><source src="sm fly mobas.mp4" type="video/mp4"/></video><div class="gi-ov"><span>▶ PLAY</span></div></div>
+      <div class="gi-foot"><span class="gi-tit">Fly Mobas</span><span class="gi-cat">TRAILER</span></div>
+    </div>
+
+    <div class="gi portrait" data-label="Weather App" data-type="SOCIAL MEDIA">
+      <div class="gi-media"><video muted loop playsinline autoplay preload="auto"><source src="SM Weather 9x16.webm" type="video/webm"/><source src="SM Weather 9x16.mp4" type="video/mp4"/></video><div class="gi-ov"><span>▶ PLAY</span></div></div>
+      <div class="gi-foot"><span class="gi-tit">Weather App</span><span class="gi-cat">SOCIAL MEDIA</span></div>
+    </div>
+
+    <div class="gi landscape" data-label="Main Book Vol. 2" data-type="SHOWREEL">
+      <div class="gi-media"><video muted loop playsinline autoplay preload="auto"><source src="MAIN BOOK 2.webm" type="video/webm"/><source src="MAIN BOOK 2.mp4" type="video/mp4"/></video><div class="gi-ov"><span>▶ PLAY</span></div></div>
+      <div class="gi-foot"><span class="gi-tit">Main Book Vol. 2</span><span class="gi-cat">SHOWREEL</span></div>
+    </div>
+
+    <div class="gi landscape" data-label="Main Book Vol. 3" data-type="SHOWREEL">
+      <div class="gi-media"><video muted loop playsinline autoplay preload="auto"><source src="MAIN BOOK 3.webm" type="video/webm"/><source src="MAIN BOOK 3.mp4" type="video/mp4"/></video><div class="gi-ov"><span>▶ PLAY</span></div></div>
+      <div class="gi-foot"><span class="gi-tit">Main Book Vol. 3</span><span class="gi-cat">SHOWREEL</span></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="sec-label">
+    <span class="s-num">003</span>
+    <span class="s-slash">/</span>
+    <span class="s-name">SERVICII</span>
+    <span class="s-rule"></span>
+  </div>
+  <div class="svc-list">
+    <div class="svc-row">
+      <span class="sr-n">01</span>
+      <div class="sr-ico"><svg viewBox="0 0 64 64" fill="none"><rect x="4" y="12" width="40" height="28" rx="0" stroke="currentColor" stroke-width="2.5"/><path d="M44 22L60 14v24L44 30" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/><path d="M4 50h56M16 50v6M48 50v6" stroke="currentColor" stroke-width="2.5" stroke-linecap="square"/></svg></div>
+      <div class="sr-body">
+        <h3>EDITARE VIDEO</h3>
+        <p>Montaj profesional, etalon de culoare, design sonor și grafică animată pentru orice format — de la corporate la cinematic.</p>
+        <div class="sr-tags"><span>COLOR GRADING</span><span>SOUND DESIGN</span><span>MOTION GRAPHICS</span></div>
+      </div>
+      <span class="sr-arr">→</span>
+    </div>
+    <div class="svc-row">
+      <span class="sr-n">02</span>
+      <div class="sr-ico"><svg viewBox="0 0 64 64" fill="none"><path d="M32 8L56 22v20L32 56 8 42V22L32 8Z" stroke="currentColor" stroke-width="2.5" stroke-linejoin="miter"/><path d="M32 8v48M8 22l24 14 24-14" stroke="currentColor" stroke-width="2" stroke-linecap="square"/><circle cx="32" cy="36" r="6" stroke="currentColor" stroke-width="2"/></svg></div>
+      <div class="sr-body">
+        <h3>VIDEO 3D</h3>
+        <p>Animație 3D spectaculoasă, vizualizare de produs și integrare VFX care aduc viziunea ta la viață în trei dimensiuni.</p>
+        <div class="sr-tags"><span>3D ANIMAȚIE</span><span>VFX</span><span>VIZUALIZARE</span></div>
+      </div>
+      <span class="sr-arr">→</span>
+    </div>
+    <div class="svc-row">
+      <span class="sr-n">03</span>
+      <div class="sr-ico"><svg viewBox="0 0 64 64" fill="none"><rect x="18" y="4" width="28" height="56" rx="0" stroke="currentColor" stroke-width="2.5"/><rect x="28" y="48" width="8" height="8" stroke="currentColor" stroke-width="2"/><path d="M24 14h16M24 22h16M24 30h10" stroke="currentColor" stroke-width="2" stroke-linecap="square"/></svg></div>
+      <div class="sr-body">
+        <h3>EDITARE REELURI</h3>
+        <p>Reeluri verticale captivante și conținut short-form optimizat pentru Instagram, TikTok și YouTube Shorts.</p>
+        <div class="sr-tags"><span>INSTAGRAM</span><span>TIKTOK</span><span>YOUTUBE SHORTS</span></div>
+      </div>
+      <span class="sr-arr">→</span>
+    </div>
+    <div class="svc-row">
+      <span class="sr-n">04</span>
+      <div class="sr-ico"><svg viewBox="0 0 64 64" fill="none"><rect x="4" y="8" width="56" height="36" rx="0" stroke="currentColor" stroke-width="2.5"/><path d="M4 44h56v8H4z" stroke="currentColor" stroke-width="2.5"/><path d="M26 24l14-8v16l-14-8z" stroke="currentColor" stroke-width="2" stroke-linejoin="miter"/></svg></div>
+      <div class="sr-body">
+        <h3>CREARE TRAILERE</h3>
+        <p>Trailere cu impact maxim pentru filme, evenimente, jocuri și branduri care creează anticipație și engagement viral.</p>
+        <div class="sr-tags"><span>FILM TRAILERS</span><span>PROMO EVENTI</span><span>BRAND FILMS</span></div>
+      </div>
+      <span class="sr-arr">→</span>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+  <div class="sec-label">
+    <span class="s-num">004</span>
+    <span class="s-slash">/</span>
+    <span class="s-name">CUM LUCRĂM</span>
+    <span class="s-rule"></span>
+  </div>
+  <div class="proc-grid">
+    <div class="pc">
+      <span class="pc-n">01</span>
+      <span class="pc-ico">💡</span>
+      <h4>BRIEF &amp; VIZIUNE</h4>
+      <p>Înțelegem obiectivele tale, audiența și direcția creativă printr-o sesiune de descoperire focusată.</p>
+    </div>
+    <div class="pc">
+      <span class="pc-n">02</span>
+      <span class="pc-ico">🎥</span>
+      <h4>PRODUCȚIE CREATIVĂ</h4>
+      <p>Concept, storyboard și capturarea tuturor materialelor creative de care are nevoie proiectul tău.</p>
+    </div>
+    <div class="pc">
+      <span class="pc-n">03</span>
+      <span class="pc-ico">✂</span>
+      <h4>POST-PRODUCȚIE</h4>
+      <p>Montaj de precizie, etalon de culoare, VFX, randare 3D și design sonor care ridică conținutul.</p>
+    </div>
+    <div class="pc">
+      <span class="pc-n">04</span>
+      <span class="pc-ico">🚀</span>
+      <h4>LIVRARE &amp; SUPORT</h4>
+      <p>Video-uri finale în toate formatele necesare plus suport continuu pentru revizuiri și proiecte viitoare.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="sec-label">
+    <span class="s-num">005</span>
+    <span class="s-slash">/</span>
+    <span class="s-name">CONTACT</span>
+    <span class="s-rule"></span>
+  </div>
+  <div class="ct-wrap">
+    <div class="ct-left">
+      <p class="ct-big">ÎNCEPE<br/>PROIECTUL<br/>TĂU<span class="ct-dot">.</span></p>
+      <p class="ct-sub">Răspundem în maxim 24 de ore cu o ofertă personalizată.</p>
+      <div class="ct-direct">
+        <a href="tel:+37368787316" class="ct-link">
+          <span class="ctl-ico">☎</span>
+          <div><span class="ctl-l">SUNĂ / WHATSAPP</span><span class="ctl-v">+373 68 787 316</span></div>
+        </a>
+        <a href="https://t.me/+37368787316" target="_blank" rel="noopener" class="ct-link ct-tg">
+          <span class="ctl-ico">✈</span>
+          <div><span class="ctl-l">TELEGRAM</span><span class="ctl-v">+373 68 787 316</span></div>
+        </a>
+      </div>
+    </div>
+    <div class="ct-right">
+      <form class="cform" id="cform" novalidate>
+        <div class="fg"><input type="text" id="fn" class="fi" placeholder=" " required/><label for="fn" class="fl">NUMELE TĂU</label><span class="fline"></span></div>
+        <div class="fg"><input type="tel" id="fp" class="fi" placeholder=" " required/><label for="fp" class="fl">TELEFON / WHATSAPP</label><span class="fline"></span></div>
+        <div class="fg">
+          <select id="fs" class="fi fi-sel" required><option value="" disabled selected></option><option value="ve">EDITARE VIDEO</option><option value="3d">VIDEO 3D</option><option value="re">EDITARE REELURI</option><option value="tr">CREARE TRAILER</option><option value="alt">ALTELE</option></select>
+          <label for="fs" class="fl">SERVICIU DORIT</label><span class="fline"></span>
+        </div>
+        <div class="fg"><textarea id="fm" class="fi fi-ta" placeholder=" " rows="3" required></textarea><label for="fm" class="fl">SPUNE-NE DESPRE PROIECT</label><span class="fline"></span></div>
+        <button type="submit" class="b b-y b-full">TRIMITE MESAJ →</button>
+      </form>
+      <div class="fok" id="fok">
+        <div class="fok-ico">✓</div>
+        <p>MESAJ TRIMIS!</p>
+        <span>Te vom contacta în curând.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot">
+    <a href="#hero" class="n-logo">DSGNL<span>MEDIA</span></a>
+    <p class="foot-copy">© 2024 DSGNL MEDIA — TOATE DREPTURILE REZERVATE</p>
+    <div class="foot-r">
+      <a href="tel:+37368787316">☎ +373 68 787 316</a>
+      <a href="https://t.me/+37368787316" target="_blank" rel="noopener">✈ TELEGRAM</a>
+    </div>
+  </div>
+</footer>
+
+<!-- LIGHTBOX -->
+<div id="lb" class="lb-ov">
+  <div class="lb-in">
+    <div class="lb-hd"><span id="lbt"></span><span id="lbc"></span><button id="lbcls" class="lb-cls">[ ÎNCHIDE ]</button></div>
+    <video id="lbv" class="lb-vid" controls playsinline><source id="lbs" src="" type="video/mp4"/></video>
+  </div>
+</div>
+
+<!-- EXIT POPUP -->
+<div id="pop" class="pop-ov">
+  <div class="pop-box" id="pbox">
+    <button id="pcls" class="pop-cls">[ × ]</button>
+    <div class="pop-tag">// OFERTĂ SPECIALĂ</div>
+    <h3 class="pop-h">ESTIMARE<br/><span>GRATUITĂ</span></h3>
+    <p>Lasă datele tale și îți trimitem o ofertă personalizată în 2 ore.</p>
+    <form id="pform" novalidate>
+      <div class="fg"><input type="text" id="pn" class="fi" placeholder=" " required/><label for="pn" class="fl">NUMELE TĂU</label><span class="fline"></span></div>
+      <div class="fg"><input type="tel" id="pp" class="fi" placeholder=" " required/><label for="pp" class="fl">TELEFON / WHATSAPP</label><span class="fline"></span></div>
+      <button type="submit" class="b b-y b-full">OBȚINE ESTIMARE →</button>
+    </form>
+    <div class="pop-or">— SAU CONTACTEAZĂ-NE DIRECT —</div>
+    <div class="pop-chips">
+      <a href="tel:+37368787316" class="pch">☎ +373 68 787 316</a>
+      <a href="https://t.me/+37368787316" target="_blank" rel="noopener" class="pch pch-tg">✈ TELEGRAM</a>
+    </div>
+  </div>
+</div>
+
+<script src="main.js"></script>
+</body>
+</html>
+
