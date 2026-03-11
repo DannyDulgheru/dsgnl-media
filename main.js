@@ -13,10 +13,6 @@ function initNav(){
   window.addEventListener('scroll',()=>{
     const y=window.scrollY;
     nav.classList.toggle('top',y<80);
-    if(y>120){
-      if(y>ST.lastY&&!ST.hide){nav.classList.add('hide');ST.hide=true;}
-      else if(y<ST.lastY&&ST.hide){nav.classList.remove('hide');ST.hide=false;}
-    }
     ST.lastY=y;
   },{passive:true});
   let open=false;
@@ -83,7 +79,7 @@ function initGallery(){
       // find mp4 source (skip webm)
       const sources=vid.querySelectorAll('source');
       let src='';
-      sources.forEach(s=>{ if(s.getAttribute('src').endsWith('.mp4')) src=s.getAttribute('src'); });
+      sources.forEach(s=>{ if(s.getAttribute('src').endsWith('.webm')) src=s.getAttribute('src'); });
       if(!src && sources.length) src=sources[sources.length-1].getAttribute('src');
       openLb(src,item.dataset.label,item.dataset.type);
     });
@@ -95,9 +91,10 @@ function openLb(src,label,type){
   if(ST.lb)return;ST.lb=true;
   document.getElementById('lbt').textContent=label||'';
   document.getElementById('lbc').textContent=type||'';
-  document.getElementById('lbs').setAttribute('src',src);
-  const vid=document.getElementById('lbv');vid.load();
-  document.getElementById('lb').classList.add('open');
+  const vid=document.getElementById('lbv');
+  vid.src=src;
+  vid.load();
+  document.getElementById('lb').classList.add('show');
   document.body.style.overflow='hidden';
   gsap.fromTo('.lb-in',{y:16,opacity:0},{y:0,opacity:1,duration:0.3,ease:'power2.out'});
   vid.play().catch(()=>{});
@@ -106,8 +103,8 @@ function closeLb(){
   if(!ST.lb)return;
   const vid=document.getElementById('lbv');
   gsap.to('.lb-in',{y:12,opacity:0,duration:0.25,ease:'power2.in',onComplete(){
-    document.getElementById('lb').classList.remove('open');
-    vid.pause();vid.src='';document.body.style.overflow='';ST.lb=false;
+    document.getElementById('lb').classList.remove('show');
+    vid.pause();vid.removeAttribute('src');vid.load();document.body.style.overflow='';ST.lb=false;
   }});
 }
 function initLb(){
@@ -168,19 +165,18 @@ function initContact(){
 
 /* POPUP */
 function openPop(){
-  if(ST.pop||sessionStorage.getItem('dp'))return;
-  ST.pop=true;sessionStorage.setItem('dp','1');
-  document.getElementById('pop').classList.add('open');
+  if(ST.pop)return;
+  ST.pop=true;
+  document.getElementById('pop').classList.add('show');
   document.body.style.overflow='hidden';
 }
 function closePop(){
-  const p=document.getElementById('pop');if(!p.classList.contains('open'))return;
+  const p=document.getElementById('pop');if(!p.classList.contains('show'))return;
   gsap.to('#pbox',{y:16,opacity:0,duration:0.25,ease:'power2.in',onComplete(){
-    p.classList.remove('open');document.body.style.overflow='';
+    p.classList.remove('show');document.body.style.overflow='';
   }});
 }
 function initPopup(){
-  if(sessionStorage.getItem('dp'))return;
   document.addEventListener('mouseleave',e=>{if(e.clientY<=0)openPop();});
   let t;const ri=()=>{clearTimeout(t);t=setTimeout(openPop,22000);};ri();
   ['mousemove','keydown','scroll','click'].forEach(ev=>document.addEventListener(ev,ri,{passive:true}));
