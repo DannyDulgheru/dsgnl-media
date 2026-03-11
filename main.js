@@ -153,10 +153,32 @@ function initContact(){
   if(sel)sel.addEventListener('change',()=>sel.classList.toggle('filled',sel.value!==''));
   const form=document.getElementById('cform'),ok=document.getElementById('fok');
   if(form&&ok){
-    form.addEventListener('submit',e=>{
+    form.addEventListener('submit',async (e)=>{
       e.preventDefault();
+      const btn=form.querySelector('button[type="submit"]');
+      const origText=btn.textContent;
+      btn.textContent='SE TRIMITE...';
+      btn.disabled=true;
+      
+      const payload={
+        access_key: '52031838-da8a-4613-92ae-96fef3becb22',
+        subject: 'Contact nou de pe DSGNL STUDIO',
+        nume: document.getElementById('fn').value,
+        telefon: document.getElementById('ftel').value,
+        serviciu: document.getElementById('fs').value,
+        mesaj: document.getElementById('fm').value
+      };
+
+      try {
+        await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
+          body: JSON.stringify(payload)
+        });
+      } catch(err) { console.error(err); }
+
       gsap.to(form,{opacity:0,y:-10,duration:0.25,ease:'power2.in',onComplete(){
-        form.classList.add('hidden');ok.classList.add('vis');
+        form.classList.add('hidden');ok.classList.add('show');
         gsap.fromTo(ok,{opacity:0,y:10},{opacity:1,y:0,duration:0.3,ease:'power2.out'});
       }});
     });
@@ -174,6 +196,7 @@ function closePop(){
   const p=document.getElementById('pop');if(!p.classList.contains('show'))return;
   gsap.to('#pbox',{y:16,opacity:0,duration:0.25,ease:'power2.in',onComplete(){
     p.classList.remove('show');document.body.style.overflow='';
+    // Reset popup for next time if needed, or just leave as is
   }});
 }
 function initPopup(){
@@ -182,8 +205,34 @@ function initPopup(){
   ['mousemove','keydown','scroll','click'].forEach(ev=>document.addEventListener(ev,ri,{passive:true}));
   document.getElementById('pcls').addEventListener('click',closePop);
   document.getElementById('pop').addEventListener('click',e=>{if(e.target.id==='pop')closePop();});
-  const pf=document.getElementById('pform');
-  if(pf)pf.addEventListener('submit',e=>{e.preventDefault();closePop();});
+  const pf=document.getElementById('pform'), pok=document.getElementById('pok');
+  if(pf&&pok)pf.addEventListener('submit',async (e)=>{
+    e.preventDefault();
+    const btn=pf.querySelector('button[type="submit"]');
+    btn.textContent='SE TRIMITE...';
+    btn.disabled=true;
+    
+    const payload={
+      access_key: '52031838-da8a-4613-92ae-96fef3becb22',
+      subject: 'Ofertă Specială - Popup DSGNL STUDIO',
+      nume: document.getElementById('pn').value,
+      telefon: document.getElementById('pp').value
+    };
+
+    try {
+      await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
+        body: JSON.stringify(payload)
+      });
+    } catch(err) { console.error(err); }
+
+    gsap.to(pf,{opacity:0,y:-10,duration:0.25,ease:'power2.in',onComplete(){
+      pf.classList.add('hidden');pok.classList.add('show');
+      gsap.fromTo(pok,{opacity:0,y:10},{opacity:1,y:0,duration:0.3,ease:'power2.out'});
+      setTimeout(closePop, 3000);
+    }});
+  });
 }
 
 /* FLOAT PHONE */
