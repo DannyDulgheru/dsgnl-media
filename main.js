@@ -1,6 +1,12 @@
 'use strict';
 gsap.registerPlugin(ScrollTrigger);
 
+/* THEME */
+(function(){
+  const themes=['theme-minimal','theme-luxury','theme-contemporary'];
+  document.documentElement.classList.add(themes[Math.floor(Math.random() * themes.length)]);
+})();
+
 const ST={hide:false,lastY:0,lb:false,pop:false};
 
 /* NAV */
@@ -86,37 +92,58 @@ function initGallery(){
   }
 
   items.forEach(item=>{
+    const ytId=item.dataset.yt;
     const vid=item.querySelector('video');
     // Click → lightbox
     item.addEventListener('click',()=>{
-      const sources=vid.querySelectorAll('source');
-      let src='';
-      sources.forEach(s=>{ if(s.getAttribute('src').endsWith('.webm')) src=s.getAttribute('src'); });
-      if(!src && sources.length) src=sources[sources.length-1].getAttribute('src');
-      openLb(src,item.dataset.label,item.dataset.type);
+      if(ytId){
+        openLb(null,item.dataset.label,item.dataset.type,ytId);
+      } else if(vid){
+        const sources=vid.querySelectorAll('source');
+        let src='';
+        sources.forEach(s=>{ if(s.getAttribute('src').endsWith('.webm')) src=s.getAttribute('src'); });
+        if(!src && sources.length) src=sources[sources.length-1].getAttribute('src');
+        openLb(src,item.dataset.label,item.dataset.type);
+      }
     });
   });
 }
 
 /* LIGHTBOX */
-function openLb(src,label,type){
+function openLb(src,label,type,ytId){
   if(ST.lb)return;ST.lb=true;
   document.getElementById('lbt').textContent=label||'';
   document.getElementById('lbc').textContent=type||'';
   const vid=document.getElementById('lbv');
-  vid.src=src;
-  vid.load();
+  const ytWrap=document.getElementById('lb-yt-wrap');
+  const ytFr=document.getElementById('lbyt');
+  if(ytId){
+    vid.style.display='none';
+    ytWrap.style.display='block';
+    ytFr.src='https://www.youtube.com/embed/'+ytId+'?autoplay=1&rel=0&modestbranding=1';
+  } else {
+    vid.style.display='';
+    ytWrap.style.display='none';
+    vid.src=src;
+    vid.load();
+    vid.play().catch(()=>{});
+  }
   document.getElementById('lb').classList.add('show');
   document.body.style.overflow='hidden';
   gsap.fromTo('.lb-in',{y:16,opacity:0},{y:0,opacity:1,duration:0.3,ease:'power2.out'});
-  vid.play().catch(()=>{});
 }
 function closeLb(){
   if(!ST.lb)return;
   const vid=document.getElementById('lbv');
+  const ytFr=document.getElementById('lbyt');
+  const ytWrap=document.getElementById('lb-yt-wrap');
   gsap.to('.lb-in',{y:12,opacity:0,duration:0.25,ease:'power2.in',onComplete(){
     document.getElementById('lb').classList.remove('show');
-    vid.pause();vid.removeAttribute('src');vid.load();document.body.style.overflow='';ST.lb=false;
+    vid.pause();vid.removeAttribute('src');vid.load();
+    ytFr.src='';
+    ytWrap.style.display='none';
+    vid.style.display='';
+    document.body.style.overflow='';ST.lb=false;
   }});
 }
 function initLb(){
