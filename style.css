@@ -284,6 +284,8 @@ footer { padding: 0; background: var(--blk); }
   .s-name { font-size: 2rem; }
   .g-cols { grid-template-columns: 1fr; }
   .gi { border-right: none; }
+  .gi-ov { opacity: 1; }
+  .gi-ov span { transform: scale(1); }
   .svc-row { flex-direction: column; }
   .sr-n { padding: 20px; font-size: 2rem; border-right: none; border-bottom: 3px solid var(--bdr); justify-content: flex-start; }
   .sr-body { padding: 20px; }

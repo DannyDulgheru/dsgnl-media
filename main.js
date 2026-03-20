@@ -56,27 +56,39 @@ function initGallery(){
     scrollTrigger:{trigger:'#gallery',start:'top 78%'},
   });
 
-  // IntersectionObserver: play when visible, pause when off-screen
-  const io=new IntersectionObserver((entries)=>{
-    entries.forEach(entry=>{
-      const vid=entry.target.querySelector('video');
+  const isMobile=window.matchMedia('(max-width:768px)').matches;
+
+  if(!isMobile){
+    // Desktop: IntersectionObserver — play when visible, pause when off-screen
+    const io=new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        const vid=entry.target.querySelector('video');
+        if(!vid)return;
+        if(entry.isIntersecting){
+          vid.play().catch(()=>{});
+        } else {
+          vid.pause();
+        }
+      });
+    },{threshold:0.25});
+    items.forEach(item=>io.observe(item));
+  } else {
+    // Mobile: no autoplay — pause and show first frame as thumbnail
+    items.forEach(item=>{
+      const vid=item.querySelector('video');
       if(!vid)return;
-      if(entry.isIntersecting){
-        vid.play().catch(()=>{});
-      } else {
-        vid.pause();
-      }
+      vid.removeAttribute('autoplay');
+      vid.pause();
+      const showThumb=()=>{ vid.currentTime=0.1; };
+      if(vid.readyState>=2){ showThumb(); }
+      else{ vid.addEventListener('loadeddata',showThumb,{once:true}); }
     });
-  },{threshold:0.25});
+  }
 
   items.forEach(item=>{
     const vid=item.querySelector('video');
-    io.observe(item);
-
-    // Hover: desaturation already handled via CSS .gi:hover .gi-media video
-    // Click → lightbox: get first mp4 source
+    // Click → lightbox
     item.addEventListener('click',()=>{
-      // find mp4 source (skip webm)
       const sources=vid.querySelectorAll('source');
       let src='';
       sources.forEach(s=>{ if(s.getAttribute('src').endsWith('.webm')) src=s.getAttribute('src'); });
