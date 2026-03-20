@@ -1,11 +1,8 @@
 'use strict';
 gsap.registerPlugin(ScrollTrigger);
 
-/* THEME */
-(function(){
-  const themes=['theme-minimal','theme-luxury','theme-contemporary'];
-  document.documentElement.classList.add(themes[Math.floor(Math.random() * themes.length)]);
-})();
+/* THEME — unified cinematic design, no random theming */
+(function(){})();
 
 const ST={hide:false,lastY:0,lb:false,pop:false};
 
