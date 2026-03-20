@@ -3,8 +3,9 @@ gsap.registerPlugin(ScrollTrigger);
 
 /* THEME */
 (function(){
-  const themes=['theme-minimal','theme-luxury','theme-contemporary'];
-  document.documentElement.classList.add(themes[Math.floor(Math.random() * themes.length)]);
+  const themes=['','theme-cyber','theme-luxury','theme-fresh'];
+  const pick=themes[Math.floor(Math.random() * themes.length)];
+  if(pick) document.documentElement.classList.add(pick);
 })();
 
 const ST={hide:false,lastY:0,lb:false,pop:false};
