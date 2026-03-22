@@ -55,6 +55,61 @@ function initHero(){
   });
 }
 
+/* HERO SLIDER */
+function initHeroSlider(){
+  const track=document.getElementById('htrack');
+  if(!track)return;
+  const slides=track.querySelectorAll('.hs-slide');
+  const dotsWrap=document.getElementById('hsdots');
+  if(!slides.length)return;
+  let current=0;
+  let timer=null;
+  const SLIDE_INTERVAL=4500;
+
+  // Build dots
+  slides.forEach((_,i)=>{
+    const dot=document.createElement('button');
+    dot.className='hs-dot'+(i===0?' active':'');
+    dot.setAttribute('aria-label','Slide '+(i+1));
+    dot.addEventListener('click',()=>goTo(i));
+    dotsWrap.appendChild(dot);
+  });
+
+  function goTo(n){
+    const prevVid=slides[current].querySelector('video');
+    if(prevVid)prevVid.pause();
+    slides[current].classList.remove('active');
+    dotsWrap.querySelectorAll('.hs-dot')[current].classList.remove('active');
+
+    current=(n+slides.length)%slides.length;
+    slides[current].classList.add('active');
+    dotsWrap.querySelectorAll('.hs-dot')[current].classList.add('active');
+
+    const vid=slides[current].querySelector('video');
+    if(vid){
+      if(vid.preload==='none')vid.preload='metadata';
+      vid.play().catch(()=>{});
+    }
+    resetTimer();
+  }
+
+  function resetTimer(){
+    clearInterval(timer);
+    timer=setInterval(()=>goTo(current+1),SLIDE_INTERVAL);
+  }
+
+  document.getElementById('hsprev').addEventListener('click',()=>goTo(current-1));
+  document.getElementById('hsnext').addEventListener('click',()=>goTo(current+1));
+
+  const slider=document.getElementById('hslider');
+  slider.addEventListener('mouseenter',()=>clearInterval(timer));
+  slider.addEventListener('mouseleave',resetTimer);
+
+  const firstVid=slides[0].querySelector('video');
+  if(firstVid)firstVid.play().catch(()=>{});
+  resetTimer();
+}
+
 /* GALLERY */
 function initGallery(){
   const items=document.querySelectorAll('.gi');
@@ -312,6 +367,7 @@ document.addEventListener('DOMContentLoaded',()=>{
   setInit();
   initNav();
   initHero();
+  initHeroSlider();
   initGallery();
   initLb();
   initServices();
