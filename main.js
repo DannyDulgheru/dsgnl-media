@@ -40,6 +40,7 @@ function initHero(){
   const tl=gsap.timeline({delay:0.15});
   tl.to('#hi',{opacity:1,y:0,duration:0.5,ease:'power2.out'});
   tl.to('.hlw',{y:0,opacity:1,duration:0.7,stagger:0.1,ease:'power3.out'},'-=0.2');
+  tl.to('#haud',{opacity:1,y:0,duration:0.5,ease:'power2.out'},'-=0.1');
   tl.to('#htk',{opacity:1,y:0,duration:0.5,ease:'power2.out'},'-=0.1');
   tl.to('#hcta',{opacity:1,y:0,duration:0.5,ease:'power2.out'},'-=0.2');
   tl.to('#hst',{opacity:1,y:0,duration:0.5,ease:'power2.out'},'-=0.2');
@@ -108,6 +109,31 @@ function initHeroSlider(){
   const firstVid=slides[0].querySelector('video');
   if(firstVid)firstVid.play().catch(()=>{});
   resetTimer();
+}
+
+/* GALLERY FILTERS */
+function initGalleryFilter(){
+  const btns=document.querySelectorAll('.gf-btn');
+  const items=document.querySelectorAll('#gcols .gi');
+  if(!btns.length)return;
+  btns.forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      btns.forEach(b=>b.classList.remove('active'));
+      btn.classList.add('active');
+      const f=btn.dataset.filter;
+      items.forEach(item=>{
+        const wasHidden=item.style.display==='none';
+        if(f==='all'||item.dataset.cat===f){
+          if(wasHidden){
+            item.style.display='';
+            gsap.fromTo(item,{opacity:0,y:12},{opacity:1,y:0,duration:0.35,ease:'power2.out'});
+          }
+        } else {
+          item.style.display='none';
+        }
+      });
+    });
+  });
 }
 
 /* GALLERY */
@@ -296,7 +322,7 @@ function closePop(){
 }
 function initPopup(){
   document.addEventListener('mouseleave',e=>{if(e.clientY<=0)openPop();});
-  let t;const ri=()=>{clearTimeout(t);t=setTimeout(openPop,22000);};ri();
+  let t;const ri=()=>{clearTimeout(t);t=setTimeout(openPop,30000);};ri();
   ['mousemove','keydown','scroll','click'].forEach(ev=>document.addEventListener(ev,ri,{passive:true}));
   document.getElementById('pcls').addEventListener('click',closePop);
   document.getElementById('pop').addEventListener('click',e=>{if(e.target.id==='pop')closePop();});
@@ -356,6 +382,7 @@ function initScroll(){
 function setInit(){
   gsap.set('#hi',{y:12});
   gsap.set('.hlw',{y:'105%'});
+  gsap.set('#haud',{y:12,opacity:0});
   gsap.set('#htk',{y:12});
   gsap.set('#hcta',{y:12});
   gsap.set('#hst',{y:12});
@@ -368,6 +395,7 @@ document.addEventListener('DOMContentLoaded',()=>{
   initNav();
   initHero();
   initHeroSlider();
+  initGalleryFilter();
   initGallery();
   initLb();
   initServices();

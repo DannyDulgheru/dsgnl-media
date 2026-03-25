@@ -156,10 +156,11 @@
     <div class="h-left">
       <div class="h-index" id="hi">[ STUDIO — MD — 2026 ]</div>
       <h1 class="h-title" id="ht">
-        <span class="hl hl1"><span class="hlw">CREĂM</span></span>
-        <span class="hl hl2 hl-acc"><span class="hlw" id="tw">POVEȘTI</span></span>
-        <span class="hl hl3"><span class="hlw">VIZUALE</span></span>
+        <span class="hl hl1"><span class="hlw">CONȚINUT</span></span>
+        <span class="hl hl2 hl-acc"><span class="hlw" id="tw">VIDEO</span></span>
+        <span class="hl hl3"><span class="hlw">CARE VINDE.</span></span>
       </h1>
+      <p class="h-audience" id="haud">Video 3D &amp; editare profesională pentru branduri, restaurante și e-commerce din Moldova.</p>
       <div class="h-ticker" id="htk">
         <span>EDITARE VIDEO</span><span class="tx">×</span>
         <span>PRODUCȚIE 3D</span><span class="tx">×</span>
@@ -168,14 +169,14 @@
       </div>
       <div class="h-cta" id="hcta">
         <a href="#gallery" class="b b-y">↓ SHOWREEL</a>
-        <a href="#contact" class="b b-o">OFERTĂ →</a>
+        <a href="#contact" class="b b-o">OFERTĂ GRATUITĂ →</a>
       </div>
       <div class="h-stats" id="hst">
-        <div class="hst-item"><span class="hst-n" data-n="120">0</span><span class="hst-u">+</span><span class="hst-l">PROIECTE</span></div>
+        <div class="hst-item"><span class="hst-n" data-n="120">120</span><span class="hst-u">+</span><span class="hst-l">PROIECTE</span></div>
         <span class="hst-sep">/</span>
-        <div class="hst-item"><span class="hst-n" data-n="5">0</span><span class="hst-u">+</span><span class="hst-l">ANI XP</span></div>
+        <div class="hst-item"><span class="hst-n" data-n="5">5</span><span class="hst-u">+</span><span class="hst-l">ANI XP</span></div>
         <span class="hst-sep">/</span>
-        <div class="hst-item"><span class="hst-n" data-n="98">0</span><span class="hst-u">%</span><span class="hst-l">MULȚUMIȚI</span></div>
+        <div class="hst-item"><span class="hst-n" data-n="98">98</span><span class="hst-u">%</span><span class="hst-l">MULȚUMIȚI</span></div>
       </div>
     </div>
 
@@ -223,80 +224,88 @@
     <span class="s-rule"></span>
   </div>
 
-  <div class="g-cols">
+  <div class="g-filters" id="gfilters">
+    <button class="gf-btn active" data-filter="all">TOATE</button>
+    <button class="gf-btn" data-filter="3d">3D</button>
+    <button class="gf-btn" data-filter="reeluri">REELURI</button>
+    <button class="gf-btn" data-filter="editare">EDITARE</button>
+    <button class="gf-btn" data-filter="reclame">RECLAME</button>
+  </div>
 
-    <div class="gi landscape" data-label="Robot AI" data-type="PRODUCȚIE 3D">
+  <div class="g-cols" id="gcols">
+
+    <div class="gi landscape" data-label="Robot AI" data-type="PRODUCȚIE 3D" data-cat="3d">
       <div class="gi-media"><video muted loop playsinline autoplay preload="auto"><source src="videos/JM3MR_ROBOTAI_16x9.webm" type="video/webm"/></video><div class="gi-ov"><span>▶ PLAY</span></div></div>
 
     </div>
 
-    <div class="gi portrait" data-label="Tourists Reel" data-type="SOCIAL MEDIA">
+    <div class="gi portrait" data-label="Tourists Reel" data-type="SOCIAL MEDIA" data-cat="reeluri">
       <div class="gi-media"><video muted loop playsinline autoplay preload="auto"><source src="videos/SM 2 Tourists 9x16.webm" type="video/webm"/></video><div class="gi-ov"><span>▶ PLAY</span></div></div>
 
     </div>
 
-    <div class="gi landscape" data-label="Christmas Ball" data-type="MOTION DESIGN">
+    <div class="gi landscape" data-label="Christmas Ball" data-type="MOTION DESIGN" data-cat="3d">
       <div class="gi-media"><video muted loop playsinline autoplay preload="auto"><source src="videos/JM3MR_CHRISTMAS_BALL_16x9.webm" type="video/webm"/></video><div class="gi-ov"><span>▶ PLAY</span></div></div>
 
     </div>
 
-    <div class="gi portrait" data-label="Sofa 3D" data-type="REEL 3D">
+    <div class="gi portrait" data-label="Sofa 3D" data-type="REEL 3D" data-cat="3d">
       <div class="gi-media"><video muted loop playsinline autoplay preload="auto"><source src="videos/SM_Sofa3D_9x16.webm" type="video/webm"/></video><div class="gi-ov"><span>▶ PLAY</span></div></div>
 
     </div>
 
-    <div class="gi landscape" data-label="Luggage Campaign" data-type="EDITARE VIDEO">
+    <div class="gi landscape" data-label="Luggage Campaign" data-type="EDITARE VIDEO" data-cat="editare">
       <div class="gi-media"><video muted loop playsinline autoplay preload="auto"><source src="videos/luggage_1.webm" type="video/webm"/></video><div class="gi-ov"><span>▶ PLAY</span></div></div>
 
     </div>
 
-    <div class="gi portrait" data-label="Amazon Ads" data-type="RECLAME">
+    <div class="gi portrait" data-label="Amazon Ads" data-type="RECLAME" data-cat="reclame">
       <div class="gi-media"><video muted loop playsinline autoplay preload="auto"><source src="videos/SM Amazon Type Ads 9x16.webm" type="video/webm"/></video><div class="gi-ov"><span>▶ PLAY</span></div></div>
 
     </div>
 
-    <div class="gi landscape" data-label="Fly Mobas" data-type="TRAILER">
+    <div class="gi landscape" data-label="Fly Mobas" data-type="TRAILER" data-cat="reclame">
       <div class="gi-media"><video muted loop playsinline autoplay preload="auto"><source src="videos/sm fly mobas.webm" type="video/webm"/></video><div class="gi-ov"><span>▶ PLAY</span></div></div>
 
     </div>
 
-    <div class="gi portrait" data-label="Weather App" data-type="SOCIAL MEDIA">
+    <div class="gi portrait" data-label="Weather App" data-type="SOCIAL MEDIA" data-cat="reeluri">
       <div class="gi-media"><video muted loop playsinline autoplay preload="auto"><source src="videos/SM Weather 9x16.webm" type="video/webm"/></video><div class="gi-ov"><span>▶ PLAY</span></div></div>
 
     </div>
 
-    <div class="gi landscape" data-label="Main Book Vol. 2" data-type="SHOWREEL">
+    <div class="gi landscape" data-label="Main Book Vol. 2" data-type="SHOWREEL" data-cat="editare">
       <div class="gi-media"><video muted loop playsinline autoplay preload="auto"><source src="videos/MAIN BOOK 2.webm" type="video/webm"/></video><div class="gi-ov"><span>▶ PLAY</span></div></div>
 
     </div>
 
-    <div class="gi landscape" data-label="Main Book Vol. 3" data-type="SHOWREEL">
+    <div class="gi landscape" data-label="Main Book Vol. 3" data-type="SHOWREEL" data-cat="editare">
       <div class="gi-media"><video muted loop playsinline autoplay preload="auto"><source src="videos/MAIN BOOK 3.webm" type="video/webm"/></video><div class="gi-ov"><span>▶ PLAY</span></div></div>
 
     </div>
-    <div class="gi square" data-label="Cookbook Journey" data-type="SOCIAL MEDIA">
+    <div class="gi square" data-label="Cookbook Journey" data-type="SOCIAL MEDIA" data-cat="reeluri">
       <div class="gi-media"><video muted loop playsinline autoplay preload="auto"><source src="videos/JM3 Cookbook Journey 1x1.webm" type="video/webm"/></video><div class="gi-ov"><span>▶ PLAY</span></div></div>
 
     </div>
-    <div class="gi square" data-label="Story AI" data-type="AI VIDEO">
+    <div class="gi square" data-label="Story AI" data-type="AI VIDEO" data-cat="3d">
       <div class="gi-media"><video muted loop playsinline autoplay preload="auto"><source src="videos/JM3 STORY AI 1x1.webm" type="video/webm"/></video><div class="gi-ov"><span>▶ PLAY</span></div></div>
 
     </div>
-    <div class="gi square" data-label="Forms World" data-type="TESTING">
+    <div class="gi square" data-label="Forms World" data-type="TESTING" data-cat="3d">
       <div class="gi-media"><video muted loop playsinline autoplay preload="auto"><source src="videos/JM3- Story testing - FORMS world 1x1.webm" type="video/webm"/></video><div class="gi-ov"><span>▶ PLAY</span></div></div>
 
     </div>
-    <div class="gi portrait" data-label="Treasure" data-type="MOTION DESIGN">
+    <div class="gi portrait" data-label="Treasure" data-type="MOTION DESIGN" data-cat="3d">
       <div class="gi-media"><video muted loop playsinline autoplay preload="auto"><source src="videos/JM3MR Treasure 9x16.webm" type="video/webm"/></video><div class="gi-ov"><span>▶ PLAY</span></div></div>
 
     </div>
 
-    <div class="gi landscape gi-yt" data-label="DSGNL Showreel" data-type="SHOWREEL" data-yt="spZr7vSiKl4">
+    <div class="gi landscape gi-yt" data-label="DSGNL Showreel" data-type="SHOWREEL" data-cat="editare" data-yt="spZr7vSiKl4">
       <div class="gi-media"><img src="https://img.youtube.com/vi/spZr7vSiKl4/maxresdefault.jpg" alt="DSGNL Showreel" loading="lazy"/><div class="gi-ov"><span>▶ PLAY</span></div></div>
 
     </div>
 
-    <div class="gi landscape gi-yt" data-label="Creative Portfolio" data-type="PORTFOLIO" data-yt="A6qddo9QHVE">
+    <div class="gi landscape gi-yt" data-label="Creative Portfolio" data-type="PORTFOLIO" data-cat="editare" data-yt="A6qddo9QHVE">
       <div class="gi-media"><img src="https://img.youtube.com/vi/A6qddo9QHVE/maxresdefault.jpg" alt="Creative Portfolio" loading="lazy"/><div class="gi-ov"><span>▶ PLAY</span></div></div>
 
     </div>
@@ -307,7 +316,7 @@
 <!-- SERVICES -->
 <section id="services">
   <div class="sec-label">
-    <span class="s-num">003</span>
+    <span class="s-num">004</span>
     <span class="s-slash">/</span>
     <span class="s-name">SERVICII</span>
     <span class="s-rule"></span>
@@ -356,10 +365,61 @@
   </div>
 </section>
 
+<!-- PRICING -->
+<section id="pricing">
+  <div class="sec-label">
+    <span class="s-num">005</span>
+    <span class="s-slash">/</span>
+    <span class="s-name">PACHETE &amp; PREȚURI</span>
+    <span class="s-rule"></span>
+  </div>
+  <div class="pr-grid">
+    <div class="pr-card">
+      <div class="pr-badge">STARTER</div>
+      <div class="pr-price">De la <strong>50€</strong></div>
+      <ul class="pr-list">
+        <li>✓ 1 reel / video scurt</li>
+        <li>✓ Editare &amp; color grading</li>
+        <li>✓ Format pentru Instagram / TikTok</li>
+        <li>✓ Livrare în 5 zile</li>
+        <li>✓ 2 revizuiri incluse</li>
+      </ul>
+      <a href="#contact" class="b b-o">SOLICITĂ OFERTĂ →</a>
+    </div>
+    <div class="pr-card pr-card--featured">
+      <div class="pr-badge">PROFESIONAL</div>
+      <div class="pr-price">De la <strong>500€</strong></div>
+      <ul class="pr-list">
+        <li>✓ Pachet 3–5 video-uri</li>
+        <li>✓ Animație 3D sau VFX</li>
+        <li>✓ Sound design profesional</li>
+        <li>✓ Toate formatele (16:9 / 9:16 / 1:1)</li>
+        <li>✓ Livrare în 7 zile</li>
+        <li>✓ Revizuiri nelimitate</li>
+      </ul>
+      <a href="#contact" class="b b-y">SOLICITĂ OFERTĂ →</a>
+    </div>
+    <div class="pr-card">
+      <div class="pr-badge">PREMIUM</div>
+      <div class="pr-price">De la <strong>1.200€</strong></div>
+      <ul class="pr-list">
+        <li>✓ Producție completă lunară</li>
+        <li>✓ Strategie de conținut</li>
+        <li>✓ 3D, trailer &amp; reeluri</li>
+        <li>✓ Manager dedicat de proiect</li>
+        <li>✓ Prioritate la livrare</li>
+        <li>✓ Suport continuu</li>
+      </ul>
+      <a href="#contact" class="b b-o">SOLICITĂ OFERTĂ →</a>
+    </div>
+  </div>
+  <p class="pr-note">* Prețurile sunt orientative. Oferta finală depinde de complexitatea proiectului. Contactează-ne pentru o estimare gratuită.</p>
+</section>
+
 <!-- PROCESS -->
 <section id="process">
   <div class="sec-label">
-    <span class="s-num">004</span>
+    <span class="s-num">006</span>
     <span class="s-slash">/</span>
     <span class="s-name">CUM LUCRĂM</span>
     <span class="s-rule"></span>
@@ -395,7 +455,7 @@
 <!-- CONTACT -->
 <section id="contact">
   <div class="sec-label">
-    <span class="s-num">005</span>
+    <span class="s-num">007</span>
     <span class="s-slash">/</span>
     <span class="s-name">CONTACT</span>
     <span class="s-rule"></span>
