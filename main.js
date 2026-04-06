@@ -267,7 +267,7 @@ function initContact(){
       btn.textContent='SE TRIMITE...';
       btn.disabled=true;
       
-      const platforms=[...document.querySelectorAll('input[name="platform"]:checked')].map(cb=>cb.value).join(', ');
+      const platformsString=[...document.querySelectorAll('input[name="platform"]:checked')].map(cb=>cb.value).join(', ');
       const budgetEl=document.querySelector('input[name="budget"]:checked');
       const payload={
         access_key: '52031838-da8a-4613-92ae-96fef3becb22',
@@ -275,7 +275,7 @@ function initContact(){
         nume: document.getElementById('fn').value,
         telefon: document.getElementById('ftel').value,
         serviciu: document.getElementById('fs').value,
-        platforme: platforms||'nespecificat',
+        platforme: platformsString||'nespecificat',
         buget: budgetEl?budgetEl.value:'nespecificat',
         mesaj: document.getElementById('fm').value
       };
