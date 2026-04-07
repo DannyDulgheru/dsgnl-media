@@ -208,11 +208,23 @@ function initLb(){
   document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeLb();closePop();}});
 }
 
+/* PACKAGES */
+function initPackages(){
+  gsap.fromTo('.pkg-card',{opacity:0,y:28},{
+    opacity:1,y:0,duration:0.5,stagger:0.15,ease:'power2.out',
+    scrollTrigger:{trigger:'#packages',start:'top 74%'},
+  });
+}
+
 /* SERVICES */
 function initServices(){
+  gsap.fromTo('.ind-block',{opacity:0,y:20},{
+    opacity:1,y:0,duration:0.4,stagger:0.1,ease:'power2.out',
+    scrollTrigger:{trigger:'#services',start:'top 74%'},
+  });
   gsap.fromTo('.svc-row',{opacity:0,x:-20},{
     opacity:1,x:0,duration:0.5,stagger:0.1,ease:'power2.out',
-    scrollTrigger:{trigger:'#services',start:'top 74%'},
+    scrollTrigger:{trigger:'.svc-list',start:'top 80%'},
   });
 }
 
@@ -255,12 +267,16 @@ function initContact(){
       btn.textContent='SE TRIMITE...';
       btn.disabled=true;
       
+      const platformsString=[...document.querySelectorAll('input[name="platform"]:checked')].map(cb=>cb.value).join(', ');
+      const budgetEl=document.querySelector('input[name="budget"]:checked');
       const payload={
         access_key: '52031838-da8a-4613-92ae-96fef3becb22',
         subject: 'Contact nou de pe DSGNL STUDIO',
         nume: document.getElementById('fn').value,
         telefon: document.getElementById('ftel').value,
         serviciu: document.getElementById('fs').value,
+        platforme: platformsString||'nespecificat',
+        buget: budgetEl?budgetEl.value:'nespecificat',
         mesaj: document.getElementById('fm').value
       };
 
@@ -370,6 +386,7 @@ document.addEventListener('DOMContentLoaded',()=>{
   initHeroSlider();
   initGallery();
   initLb();
+  initPackages();
   initServices();
   initProcess();
   initLabels();
