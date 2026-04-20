@@ -1,0 +1,116 @@
+<h2>Cum arată Hero Section?</h2>
+<p class="subtitle">Momentul în care vizitatorul aterizează pe site</p>
+
+<div class="cards" style="grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 24px;">
+
+  <div class="card" data-choice="split" onclick="toggleSelect(this)" style="overflow:hidden; cursor:pointer;">
+    <div class="card-image" style="height:260px; padding:0; position:relative; overflow:hidden; background:#0d0d0d;">
+      <!-- Split layout: text left, video right -->
+      <div style="position:absolute;inset:0;display:grid;grid-template-columns:1fr 1fr;">
+        <!-- Left text -->
+        <div style="padding:16px;display:flex;flex-direction:column;justify-content:center;gap:8px;border-right:1px solid rgba(200,255,0,0.2);">
+          <div style="font-size:7px;color:#c8ff00;letter-spacing:3px;">[ STUDIO — MD — 2026 ]</div>
+          <div style="font-size:28px;font-weight:900;color:#fff;line-height:0.9;letter-spacing:-0.5px;">CREĂM<br/><span style="color:#c8ff00;">POVEȘTI</span><br/>VIZUALE</div>
+          <div style="display:flex;gap:6px;margin-top:4px;">
+            <div style="padding:4px 10px;background:#c8ff00;color:#0d0d0d;font-size:7px;font-weight:900;letter-spacing:1px;">↓ SHOWREEL</div>
+            <div style="padding:4px 10px;border:1px solid rgba(255,255,255,0.25);color:#fff;font-size:7px;letter-spacing:1px;">OFERTĂ →</div>
+          </div>
+          <div style="display:flex;gap:10px;margin-top:auto;">
+            <div style="text-align:center;padding:6px;flex:1;border:1px solid rgba(255,255,255,0.08);">
+              <div style="color:#c8ff00;font-size:14px;font-weight:900;">120+</div>
+              <div style="color:#555;font-size:6px;letter-spacing:1px;">PROIECTE</div>
+            </div>
+            <div style="text-align:center;padding:6px;flex:1;border:1px solid rgba(255,255,255,0.08);">
+              <div style="color:#c8ff00;font-size:14px;font-weight:900;">5+</div>
+              <div style="color:#555;font-size:6px;letter-spacing:1px;">ANI XP</div>
+            </div>
+            <div style="text-align:center;padding:6px;flex:1;border:1px solid rgba(255,255,255,0.08);">
+              <div style="color:#c8ff00;font-size:14px;font-weight:900;">98%</div>
+              <div style="color:#555;font-size:6px;letter-spacing:1px;">MULȚUMIȚI</div>
+            </div>
+          </div>
+        </div>
+        <!-- Right video area -->
+        <div style="position:relative;background:#111;overflow:hidden;">
+          <div style="position:absolute;inset:0;background:linear-gradient(135deg,#111 0%,#1a1a1a 100%);display:flex;align-items:center;justify-content:center;">
+            <div style="text-align:center;">
+              <div style="width:48px;height:48px;border:2px solid rgba(200,255,0,0.4);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 8px;">
+                <div style="width:0;height:0;border-top:10px solid transparent;border-bottom:10px solid transparent;border-left:16px solid #c8ff00;margin-left:3px;"></div>
+              </div>
+              <div style="color:#555;font-size:8px;letter-spacing:2px;">VIDEO SLIDER</div>
+            </div>
+          </div>
+          <div style="position:absolute;top:8px;left:8px;background:#c8ff00;color:#0d0d0d;font-size:7px;padding:3px 7px;font-weight:900;letter-spacing:1px;">PRODUCȚIE 3D</div>
+          <div style="position:absolute;bottom:8px;right:8px;font-size:9px;font-weight:900;color:rgba(255,255,255,0.2);line-height:1.1;text-align:right;">DSGNL<br/>STUDIO<br/>®2026</div>
+        </div>
+      </div>
+      <!-- Nav bar -->
+      <div style="position:absolute;top:0;left:0;right:0;height:28px;background:#0d0d0d;border-bottom:1px solid rgba(200,255,0,0.2);display:flex;align-items:center;padding:0 12px;gap:16px;z-index:2;">
+        <span style="color:#fff;font-size:8px;font-weight:900;letter-spacing:3px;">DSGNL<span style="color:#c8ff00;">STUDIO</span></span>
+        <div style="margin-left:auto;display:flex;gap:12px;align-items:center;">
+          <span style="color:rgba(255,255,255,0.5);font-size:7px;letter-spacing:1px;">SHOWREEL</span>
+          <span style="color:rgba(255,255,255,0.5);font-size:7px;letter-spacing:1px;">SERVICII</span>
+          <span style="padding:2px 8px;background:#c8ff00;color:#0d0d0d;font-size:7px;font-weight:900;letter-spacing:1px;">CONTACT</span>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>A — Split 50/50 (ca acum)</h3>
+      <p>Text stânga + slider video dreapta. Layout echilibrat, conținut vizibil imediat fără scroll. Similar cu designul actual, dar modernizat.</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="fullscreen" onclick="toggleSelect(this)" style="overflow:hidden; cursor:pointer;">
+    <div class="card-image" style="height:260px; padding:0; position:relative; overflow:hidden; background:#0d0d0d;">
+      <!-- Full screen video background layout -->
+      <div style="position:absolute;inset:0;background:linear-gradient(135deg,#0d0d0d 0%,#1a1a1a 100%);">
+        <!-- Video BG simulation -->
+        <div style="position:absolute;inset:0;opacity:0.25;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(200,255,0,0.03) 2px,rgba(200,255,0,0.03) 4px);"></div>
+      </div>
+      <!-- Dark overlay -->
+      <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(13,13,13,0.95) 0%,rgba(13,13,13,0.3) 50%,rgba(13,13,13,0.6) 100%);"></div>
+      <!-- Content centered/bottom -->
+      <div style="position:absolute;bottom:28px;left:20px;right:20px;">
+        <div style="font-size:7px;color:#c8ff00;letter-spacing:4px;margin-bottom:6px;">[ STUDIO — MD — 2026 ]</div>
+        <div style="font-size:36px;font-weight:900;color:#fff;line-height:0.85;letter-spacing:-1px;margin-bottom:10px;">CREĂM<br/><span style="color:#c8ff00;">POVEȘTI</span><br/>VIZUALE</div>
+        <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;">
+          <div style="padding:5px 14px;background:#c8ff00;color:#0d0d0d;font-size:8px;font-weight:900;letter-spacing:2px;">↓ SHOWREEL</div>
+          <div style="padding:5px 14px;border:1px solid rgba(255,255,255,0.3);color:#fff;font-size:8px;letter-spacing:2px;">OFERTĂ →</div>
+          <div style="margin-left:auto;display:flex;gap:12px;">
+            <div style="text-align:right;">
+              <div style="color:#c8ff00;font-size:13px;font-weight:900;">120+</div>
+              <div style="color:#555;font-size:6px;letter-spacing:1px;">PROIECTE</div>
+            </div>
+            <div style="text-align:right;">
+              <div style="color:#c8ff00;font-size:13px;font-weight:900;">5+</div>
+              <div style="color:#555;font-size:6px;letter-spacing:1px;">ANI XP</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Nav -->
+      <div style="position:absolute;top:0;left:0;right:0;height:28px;background:rgba(13,13,13,0.7);backdrop-filter:blur(8px);border-bottom:1px solid rgba(200,255,0,0.15);display:flex;align-items:center;padding:0 12px;gap:16px;z-index:2;">
+        <span style="color:#fff;font-size:8px;font-weight:900;letter-spacing:3px;">DSGNL<span style="color:#c8ff00;">STUDIO</span></span>
+        <div style="margin-left:auto;display:flex;gap:12px;align-items:center;">
+          <span style="color:rgba(255,255,255,0.5);font-size:7px;letter-spacing:1px;">SHOWREEL</span>
+          <span style="color:rgba(255,255,255,0.5);font-size:7px;letter-spacing:1px;">SERVICII</span>
+          <span style="padding:2px 8px;background:#c8ff00;color:#0d0d0d;font-size:7px;font-weight:900;letter-spacing:1px;">CONTACT</span>
+        </div>
+      </div>
+      <!-- Video label -->
+      <div style="position:absolute;top:36px;left:20px;background:rgba(200,255,0,0.15);border:1px solid rgba(200,255,0,0.3);color:#c8ff00;font-size:7px;padding:3px 8px;letter-spacing:2px;">● PRODUCȚIE 3D</div>
+      <!-- Scroll indicator -->
+      <div style="position:absolute;bottom:8px;right:20px;display:flex;align-items:center;gap:4px;">
+        <div style="width:1px;height:16px;background:rgba(200,255,0,0.4);"></div>
+        <span style="color:rgba(255,255,255,0.3);font-size:7px;letter-spacing:2px;">SCROLL</span>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>B — Full-screen cu video în fundal</h3>
+      <p>Videoul rulează în fundal pe tot ecranul, textul e suprapus cu overlay. Mult mai cinematic și impactant — cum fac studiourile mari.</p>
+    </div>
+  </div>
+
+</div>
+
+<p class="subtitle" style="margin-top:16px; text-align:center;">Click pe opțiunea preferată sau descrie ce vrei diferit.</p>

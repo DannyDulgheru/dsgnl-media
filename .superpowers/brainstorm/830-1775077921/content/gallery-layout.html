@@ -1,0 +1,90 @@
+<h2>Cum prezentăm galeria video?</h2>
+<p class="subtitle">Secțiunea Showreel — 16 clipuri cu formate mixte (landscape, portrait, square)</p>
+
+<div class="cards" style="grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 24px;">
+
+  <div class="card" data-choice="masonry" onclick="toggleSelect(this)" style="overflow:hidden; cursor:pointer;">
+    <div class="card-image" style="height:280px; padding:12px; position:relative; overflow:hidden; background:#0d0d0d;">
+      <!-- Masonry grid preview -->
+      <div style="font-size:7px;color:#c8ff00;letter-spacing:3px;margin-bottom:8px;">[ 002 / GALERIE SHOWREEL ]</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;grid-template-rows:auto;gap:4px;height:220px;">
+        <!-- Landscape big -->
+        <div style="grid-column:span 2;grid-row:span 1;background:#1a1a1a;border:1px solid rgba(200,255,0,0.1);position:relative;display:flex;align-items:center;justify-content:center;">
+          <div style="width:16px;height:16px;border:1.5px solid rgba(200,255,0,0.4);border-radius:50%;display:flex;align-items:center;justify-content:center;">
+            <div style="width:0;height:0;border-top:5px solid transparent;border-bottom:5px solid transparent;border-left:8px solid #c8ff00;margin-left:2px;"></div>
+          </div>
+          <div style="position:absolute;bottom:4px;left:4px;background:#c8ff00;color:#0d0d0d;font-size:6px;padding:1px 5px;font-weight:900;letter-spacing:1px;">PRODUCȚIE 3D</div>
+        </div>
+        <!-- Portrait tall -->
+        <div style="grid-column:span 1;grid-row:span 2;background:#161616;border:1px solid rgba(200,255,0,0.1);position:relative;display:flex;align-items:center;justify-content:center;">
+          <div style="width:16px;height:16px;border:1.5px solid rgba(200,255,0,0.4);border-radius:50%;display:flex;align-items:center;justify-content:center;">
+            <div style="width:0;height:0;border-top:5px solid transparent;border-bottom:5px solid transparent;border-left:8px solid #c8ff00;margin-left:2px;"></div>
+          </div>
+          <div style="position:absolute;bottom:4px;left:4px;background:rgba(200,255,0,0.15);color:#c8ff00;font-size:6px;padding:1px 5px;letter-spacing:1px;border:1px solid rgba(200,255,0,0.3);">SOCIAL MEDIA</div>
+        </div>
+        <!-- Landscape -->
+        <div style="grid-column:span 2;grid-row:span 1;background:#1a1a1a;border:1px solid rgba(200,255,0,0.1);position:relative;display:flex;align-items:center;justify-content:center;">
+          <div style="width:16px;height:16px;border:1.5px solid rgba(200,255,0,0.4);border-radius:50%;display:flex;align-items:center;justify-content:center;">
+            <div style="width:0;height:0;border-top:5px solid transparent;border-bottom:5px solid transparent;border-left:8px solid #c8ff00;margin-left:2px;"></div>
+          </div>
+          <div style="position:absolute;bottom:4px;left:4px;background:#c8ff00;color:#0d0d0d;font-size:6px;padding:1px 5px;font-weight:900;letter-spacing:1px;">MOTION DESIGN</div>
+        </div>
+        <!-- Small square -->
+        <div style="background:#161616;border:1px solid rgba(200,255,0,0.1);display:flex;align-items:center;justify-content:center;">
+          <div style="width:12px;height:12px;border:1px solid rgba(200,255,0,0.3);border-radius:50%;"></div>
+        </div>
+        <div style="background:#1a1a1a;border:1px solid rgba(200,255,0,0.1);display:flex;align-items:center;justify-content:center;">
+          <div style="width:12px;height:12px;border:1px solid rgba(200,255,0,0.3);border-radius:50%;"></div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>A — Masonry Grid (ca acum)</h3>
+      <p>Grilă cu itemuri de mărimi diferite — landscape, portrait, square. Organic și dinamic. Arată mult conținut simultan, fiecare clip are loc natural.</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="filmstrip" onclick="toggleSelect(this)" style="overflow:hidden; cursor:pointer;">
+    <div class="card-image" style="height:280px; padding:12px; position:relative; overflow:hidden; background:#0d0d0d;">
+      <!-- Filmstrip / horizontal scroll preview -->
+      <div style="font-size:7px;color:#c8ff00;letter-spacing:3px;margin-bottom:8px;">[ 002 / GALERIE SHOWREEL ]</div>
+
+      <!-- Category filters -->
+      <div style="display:flex;gap:6px;margin-bottom:10px;flex-wrap:wrap;">
+        <div style="padding:3px 8px;background:#c8ff00;color:#0d0d0d;font-size:7px;font-weight:900;letter-spacing:1px;">TOATE</div>
+        <div style="padding:3px 8px;border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.5);font-size:7px;letter-spacing:1px;">3D</div>
+        <div style="padding:3px 8px;border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.5);font-size:7px;letter-spacing:1px;">REELURI</div>
+        <div style="padding:3px 8px;border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.5);font-size:7px;letter-spacing:1px;">TRAILERE</div>
+      </div>
+
+      <!-- Featured item big -->
+      <div style="height:110px;background:#161616;border:1px solid rgba(200,255,0,0.15);margin-bottom:6px;position:relative;display:flex;align-items:center;justify-content:center;">
+        <div style="width:28px;height:28px;border:2px solid rgba(200,255,0,0.5);border-radius:50%;display:flex;align-items:center;justify-content:center;">
+          <div style="width:0;height:0;border-top:8px solid transparent;border-bottom:8px solid transparent;border-left:13px solid #c8ff00;margin-left:3px;"></div>
+        </div>
+        <div style="position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,#c8ff00,transparent);opacity:0.3;"></div>
+        <div style="position:absolute;bottom:8px;left:10px;">
+          <div style="color:#fff;font-size:9px;font-weight:900;letter-spacing:1px;">Robot AI</div>
+          <div style="color:#555;font-size:7px;letter-spacing:1px;">PRODUCȚIE 3D</div>
+        </div>
+        <div style="position:absolute;bottom:8px;right:10px;color:#c8ff00;font-size:8px;letter-spacing:1px;">01/16</div>
+      </div>
+
+      <!-- Thumbnail row -->
+      <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:4px;">
+        <div style="height:40px;background:#1a1a1a;border:1px solid rgba(200,255,0,0.3);"></div>
+        <div style="height:40px;background:#161616;border:1px solid rgba(255,255,255,0.05);"></div>
+        <div style="height:40px;background:#1a1a1a;border:1px solid rgba(255,255,255,0.05);"></div>
+        <div style="height:40px;background:#161616;border:1px solid rgba(255,255,255,0.05);"></div>
+        <div style="height:40px;background:#1a1a1a;border:1px solid rgba(255,255,255,0.05);"></div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>B — Featured + Thumbnails</h3>
+      <p>Un clip mare evidențiat sus + filtre pe categorii (3D, Reeluri, Trailere) + bandă de thumbnail-uri. Mai structurat, permite navigare rapidă și pune accent pe cele mai bune lucrări.</p>
+    </div>
+  </div>
+
+</div>
+
+<p class="subtitle" style="margin-top:16px; text-align:center;">Click sau răspunde în terminal.</p>

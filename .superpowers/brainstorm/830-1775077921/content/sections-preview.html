@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>DSGNL Studio — Design Preview</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800;900&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+body{background:#0d0d0d;color:#fff;font-family:'DM Sans',sans-serif;overflow-x:hidden;}
+:root{
+  --bg:#0d0d0d;
+  --surface:#161616;
+  --surface2:#1f1f1f;
+  --accent:#c8ff00;
+  --wht:#ffffff;
+  --mut:#555555;
+  --head:'Space Grotesk',sans-serif;
+}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  height:64px;
+  background:rgba(13,13,13,0.85);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(200,255,0,0.12);
+  display:flex;align-items:center;
+  padding:0 48px;
+  gap:40px;
+}
+.n-logo{font-family:var(--head);font-size:1.1rem;font-weight:900;color:#fff;letter-spacing:4px;text-decoration:none;}
+.n-logo span{color:var(--accent);}
+.n-links{display:flex;gap:32px;margin-left:auto;align-items:center;list-style:none;}
+.n-links a{font-size:0.75rem;letter-spacing:3px;color:rgba(255,255,255,0.5);text-decoration:none;text-transform:uppercase;transition:color 0.2s;}
+.n-links a:hover{color:#fff;}
+.n-cta{padding:8px 22px;background:var(--accent);color:#0d0d0d!important;font-weight:700;border-radius:2px;}
+
+/* ── HERO ── */
+#hero{
+  min-height:100vh;position:relative;display:flex;flex-direction:column;justify-content:flex-end;
+  padding:0 48px 60px;
+}
+.h-bg{
+  position:absolute;inset:0;background:#111;
+  display:flex;align-items:center;justify-content:center;
+}
+.h-bg-inner{
+  position:absolute;inset:0;
+  background:linear-gradient(135deg,#0d0d0d 0%,#111827 40%,#0d0d0d 100%);
+}
+.h-bg-grid{
+  position:absolute;inset:0;
+  background-image:linear-gradient(rgba(200,255,0,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(200,255,0,0.03) 1px,transparent 1px);
+  background-size:60px 60px;
+}
+.h-bg-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(13,13,13,1) 0%,rgba(13,13,13,0.5) 40%,rgba(13,13,13,0.2) 100%);
+}
+.h-video-label{
+  position:absolute;top:80px;right:48px;
+  display:flex;align-items:center;gap:8px;
+  background:rgba(200,255,0,0.08);
+  border:1px solid rgba(200,255,0,0.25);
+  color:var(--accent);font-size:0.65rem;letter-spacing:3px;padding:6px 14px;
+}
+.h-video-label::before{content:'';width:6px;height:6px;background:var(--accent);border-radius:50%;animation:pulse 1.5s infinite;}
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.3;}}
+
+.h-content{position:relative;z-index:2;max-width:900px;}
+.h-tag{
+  display:inline-flex;align-items:center;gap:10px;
+  font-size:0.65rem;color:var(--mut);letter-spacing:4px;text-transform:uppercase;
+  margin-bottom:24px;
+}
+.h-tag::before{content:'';width:24px;height:1px;background:var(--accent);}
+h1{
+  font-family:var(--head);font-size:clamp(3.5rem,8vw,7rem);
+  font-weight:900;line-height:0.88;letter-spacing:-2px;
+  margin-bottom:32px;
+}
+h1 .acc{color:var(--accent);}
+.h-ticker{
+  display:flex;gap:24px;align-items:center;
+  font-size:0.7rem;letter-spacing:3px;color:rgba(255,255,255,0.35);
+  margin-bottom:40px;text-transform:uppercase;
+}
+.h-ticker span.sep{color:var(--accent);opacity:0.5;}
+.h-actions{display:flex;gap:16px;align-items:center;margin-bottom:60px;}
+.btn-primary{
+  padding:14px 32px;background:var(--accent);color:#0d0d0d;
+  font-family:var(--head);font-size:0.75rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;
+  border:none;cursor:pointer;border-radius:2px;text-decoration:none;
+  transition:opacity 0.2s,transform 0.2s;
+}
+.btn-primary:hover{opacity:0.85;transform:translateY(-1px);}
+.btn-ghost{
+  padding:14px 32px;background:transparent;color:#fff;
+  font-family:var(--head);font-size:0.75rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;
+  border:1px solid rgba(255,255,255,0.2);cursor:pointer;border-radius:2px;text-decoration:none;
+  transition:border-color 0.2s,color 0.2s;
+}
+.btn-ghost:hover{border-color:var(--accent);color:var(--accent);}
+
+.h-stats{display:flex;gap:48px;padding-top:32px;border-top:1px solid rgba(255,255,255,0.08);}
+.hst-item{}
+.hst-n{font-family:var(--head);font-size:2.5rem;font-weight:900;color:var(--accent);line-height:1;}
+.hst-u{font-size:1.5rem;color:var(--accent);}
+.hst-l{font-size:0.65rem;letter-spacing:3px;color:var(--mut);text-transform:uppercase;margin-top:4px;}
+
+.h-scroll{
+  position:absolute;bottom:40px;right:48px;z-index:2;
+  display:flex;flex-direction:column;align-items:center;gap:8px;
+}
+.h-scroll-line{width:1px;height:40px;background:linear-gradient(to bottom,var(--accent),transparent);}
+.h-scroll-txt{font-size:0.6rem;letter-spacing:3px;color:var(--mut);writing-mode:vertical-lr;text-transform:uppercase;}
+
+/* ── SECTION LABEL ── */
+.sec-label{
+  display:flex;align-items:center;gap:16px;
+  padding:80px 48px 40px;
+}
+.s-num{font-family:var(--head);font-size:0.65rem;color:var(--accent);letter-spacing:3px;}
+.s-line{flex:1;height:1px;background:rgba(255,255,255,0.08);}
+.s-name{font-family:var(--head);font-size:0.65rem;letter-spacing:4px;color:var(--mut);text-transform:uppercase;}
+
+/* ── GALLERY ── */
+#gallery{background:var(--bg);padding-bottom:80px;}
+.g-cols{
+  max-width:100%;padding:0 48px;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:8px;
+}
+.gi{position:relative;cursor:pointer;overflow:hidden;background:var(--surface);}
+.gi.portrait{grid-row:span 2;}
+.gi-media{position:relative;padding-top:56.25%;overflow:hidden;}
+.gi.portrait .gi-media{padding-top:150%;}
+.gi.square .gi-media{padding-top:100%;}
+.gi-media video,.gi-media img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;transition:transform 0.5s ease,filter 0.4s;}
+.gi:hover .gi-media video,.gi:hover .gi-media img{transform:scale(1.04);filter:brightness(0.7);}
+.gi-ov{
+  position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:16px;
+  background:linear-gradient(to top,rgba(13,13,13,0.8) 0%,transparent 60%);
+  opacity:0;transition:opacity 0.3s;
+}
+.gi:hover .gi-ov{opacity:1;}
+.gi-type{font-size:0.6rem;letter-spacing:3px;color:var(--accent);text-transform:uppercase;margin-bottom:4px;}
+.gi-label{font-family:var(--head);font-size:0.9rem;font-weight:700;color:#fff;}
+.gi-play{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:44px;height:44px;border:2px solid rgba(200,255,0,0.5);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  opacity:0;transition:opacity 0.3s,background 0.3s;
+}
+.gi:hover .gi-play{opacity:1;background:rgba(200,255,0,0.1);}
+.gi-play::after{content:'';width:0;height:0;border-top:9px solid transparent;border-bottom:9px solid transparent;border-left:15px solid var(--accent);margin-left:4px;}
+.mlabel{
+  position:absolute;top:12px;left:12px;z-index:2;
+  background:rgba(200,255,0,0.12);border:1px solid rgba(200,255,0,0.3);
+  color:var(--accent);font-size:0.6rem;letter-spacing:2px;padding:4px 10px;
+  text-transform:uppercase;
+}
+
+/* ── SERVICES ── */
+#services{background:var(--surface);padding-bottom:80px;}
+.svc-list{padding:0 48px;display:flex;flex-direction:column;gap:0;}
+.svc-row{
+  display:grid;grid-template-columns:60px 56px 1fr auto;
+  align-items:center;gap:32px;
+  padding:28px 0;
+  border-bottom:1px solid rgba(255,255,255,0.06);
+  transition:background 0.2s;
+  cursor:pointer;
+}
+.svc-row:hover{background:rgba(200,255,0,0.03);margin:0 -48px;padding:28px 48px;}
+.sr-n{font-family:'Space Grotesk',sans-serif;font-size:0.7rem;color:var(--mut);letter-spacing:2px;}
+.sr-ico{width:40px;height:40px;color:var(--accent);opacity:0.7;}
+.sr-ico svg{width:100%;height:100%;}
+.sr-body h3{font-family:'Space Grotesk',sans-serif;font-size:1.1rem;font-weight:700;color:#fff;letter-spacing:1px;margin-bottom:6px;}
+.sr-body p{font-size:0.85rem;color:var(--mut);line-height:1.6;margin-bottom:10px;}
+.sr-tags{display:flex;gap:8px;flex-wrap:wrap;}
+.sr-tags span{font-size:0.6rem;letter-spacing:2px;color:var(--accent);background:rgba(200,255,0,0.08);border:1px solid rgba(200,255,0,0.2);padding:3px 10px;}
+.sr-arr{font-size:1.2rem;color:rgba(255,255,255,0.15);transition:color 0.2s,transform 0.2s;}
+.svc-row:hover .sr-arr{color:var(--accent);transform:translateX(4px);}
+
+/* ── PROCESS ── */
+#process{background:var(--bg);padding-bottom:80px;}
+.proc-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
+  padding:0 48px;background:rgba(255,255,255,0.06);
+}
+.pc{
+  background:var(--bg);padding:40px 32px;position:relative;
+  transition:background 0.3s;
+}
+.pc:hover{background:var(--surface);}
+.pc-n{
+  font-family:'Space Grotesk',sans-serif;font-size:3rem;font-weight:900;
+  color:rgba(200,255,0,0.08);position:absolute;top:20px;right:20px;
+  line-height:1;
+}
+.pc-ico{font-size:2rem;display:block;margin-bottom:16px;}
+.pc h4{font-family:'Space Grotesk',sans-serif;font-size:0.85rem;font-weight:700;letter-spacing:3px;color:#fff;margin-bottom:12px;}
+.pc p{font-size:0.82rem;color:var(--mut);line-height:1.6;}
+.pc-accent{position:absolute;top:0;left:0;width:2px;height:0;background:var(--accent);transition:height 0.3s;}
+.pc:hover .pc-accent{height:100%;}
+
+/* ── CONTACT ── */
+#contact{background:var(--surface);padding-bottom:80px;}
+.ct-wrap{display:grid;grid-template-columns:1fr 1fr;gap:80px;padding:0 48px;}
+.ct-big{font-family:'Space Grotesk',sans-serif;font-size:clamp(2.5rem,5vw,4.5rem);font-weight:900;line-height:0.88;letter-spacing:-1px;margin-bottom:20px;}
+.ct-dot{color:var(--accent);}
+.ct-sub{font-size:0.9rem;color:var(--mut);margin-bottom:40px;line-height:1.6;}
+.ct-link{
+  display:flex;align-items:center;gap:16px;padding:18px 20px;
+  background:var(--bg);border:1px solid rgba(255,255,255,0.06);
+  margin-bottom:12px;text-decoration:none;color:#fff;
+  transition:border-color 0.2s,background 0.2s;
+}
+.ct-link:hover{border-color:rgba(200,255,0,0.3);background:rgba(200,255,0,0.04);}
+.ctl-ico{font-size:1.2rem;color:var(--accent);}
+.ctl-l{display:block;font-size:0.6rem;letter-spacing:3px;color:var(--mut);text-transform:uppercase;}
+.ctl-v{display:block;font-size:0.9rem;font-weight:600;margin-top:2px;}
+
+/* Form */
+.fg{position:relative;margin-bottom:16px;}
+.fi{
+  width:100%;padding:16px 16px 12px;
+  background:var(--bg);border:1px solid rgba(255,255,255,0.08);
+  color:#fff;font-family:'DM Sans',sans-serif;font-size:0.9rem;
+  transition:border-color 0.2s;outline:none;
+}
+.fi:focus{border-color:var(--accent);}
+.fl{
+  position:absolute;top:14px;left:16px;
+  font-size:0.7rem;letter-spacing:2px;color:var(--mut);text-transform:uppercase;
+  pointer-events:none;transition:all 0.2s;
+}
+.fi:focus~.fl,.fi:not(:placeholder-shown)~.fl{top:5px;font-size:0.55rem;color:var(--accent);}
+
+/* ── FOOTER ── */
+footer{
+  background:var(--bg);border-top:1px solid rgba(255,255,255,0.06);
+  padding:32px 48px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.foot-copy{font-size:0.7rem;color:var(--mut);letter-spacing:1px;}
+.foot-r{display:flex;gap:24px;}
+.foot-r a{font-size:0.7rem;color:var(--mut);letter-spacing:2px;text-decoration:none;text-transform:uppercase;transition:color 0.2s;}
+.foot-r a:hover{color:var(--accent);}
+
+/* ── FLOATING PHONE ── */
+.fp{
+  position:fixed;bottom:28px;right:28px;z-index:5000;
+  display:flex;align-items:center;gap:10px;
+  padding:12px 20px;
+  background:var(--accent);color:#0d0d0d;
+  font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:0.85rem;letter-spacing:1px;
+  border-radius:2px;text-decoration:none;
+  box-shadow:0 8px 32px rgba(200,255,0,0.25);
+  transition:transform 0.2s,box-shadow 0.2s;
+}
+.fp:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(200,255,0,0.35);}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="n-logo">DSGNL<span>STUDIO</span></a>
+  <ul class="n-links">
+    <li><a href="#">SHOWREEL</a></li>
+    <li><a href="#">SERVICII</a></li>
+    <li><a href="#">PROCES</a></li>
+    <li><a href="#" class="n-cta">CONTACT →</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="h-bg">
+    <div class="h-bg-inner"></div>
+    <div class="h-bg-grid"></div>
+    <div class="h-bg-overlay"></div>
+  </div>
+  <div class="h-video-label">● PRODUCȚIE 3D</div>
+  <div class="h-content">
+    <div class="h-tag">STUDIO — MD — 2026</div>
+    <h1>CREĂM<br/><span class="acc">POVEȘTI</span><br/>VIZUALE</h1>
+    <div class="h-ticker">
+      <span>EDITARE VIDEO</span><span class="sep">×</span>
+      <span>PRODUCȚIE 3D</span><span class="sep">×</span>
+      <span>REELURI</span><span class="sep">×</span>
+      <span>TRAILERE</span>
+    </div>
+    <div class="h-actions">
+      <a href="#" class="btn-primary">↓ SHOWREEL</a>
+      <a href="#" class="btn-ghost">OFERTĂ →</a>
+    </div>
+    <div class="h-stats">
+      <div class="hst-item">
+        <div><span class="hst-n">120</span><span class="hst-u">+</span></div>
+        <div class="hst-l">PROIECTE</div>
+      </div>
+      <div class="hst-item">
+        <div><span class="hst-n">5</span><span class="hst-u">+</span></div>
+        <div class="hst-l">ANI XP</div>
+      </div>
+      <div class="hst-item">
+        <div><span class="hst-n">98</span><span class="hst-u">%</span></div>
+        <div class="hst-l">MULȚUMIȚI</div>
+      </div>
+    </div>
+  </div>
+  <div class="h-scroll">
+    <div class="h-scroll-line"></div>
+    <div class="h-scroll-txt">scroll</div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="sec-label">
+    <span class="s-num">002</span>
+    <span class="s-line"></span>
+    <span class="s-name">GALERIE SHOWREEL</span>
+  </div>
+  <div class="g-cols">
+    <div class="gi landscape">
+      <div class="gi-media" style="padding-top:56.25%;background:#161616;"></div>
+      <div class="mlabel">PRODUCȚIE 3D</div>
+      <div class="gi-play"></div>
+      <div class="gi-ov"><div class="gi-type">PRODUCȚIE 3D</div><div class="gi-label">Robot AI</div></div>
+    </div>
+    <div class="gi portrait">
+      <div class="gi-media" style="padding-top:150%;background:#1a1a1a;"></div>
+      <div class="mlabel">SOCIAL MEDIA</div>
+      <div class="gi-play"></div>
+      <div class="gi-ov"><div class="gi-type">SOCIAL MEDIA</div><div class="gi-label">Tourists Reel</div></div>
+    </div>
+    <div class="gi landscape">
+      <div class="gi-media" style="padding-top:56.25%;background:#141414;"></div>
+      <div class="mlabel">MOTION DESIGN</div>
+      <div class="gi-play"></div>
+      <div class="gi-ov"><div class="gi-type">MOTION DESIGN</div><div class="gi-label">Christmas Ball</div></div>
+    </div>
+    <div class="gi landscape">
+      <div class="gi-media" style="padding-top:56.25%;background:#191919;"></div>
+      <div class="mlabel">EDITARE VIDEO</div>
+      <div class="gi-play"></div>
+      <div class="gi-ov"><div class="gi-type">EDITARE VIDEO</div><div class="gi-label">Luggage Campaign</div></div>
+    </div>
+    <div class="gi landscape">
+      <div class="gi-media" style="padding-top:56.25%;background:#161616;"></div>
+      <div class="mlabel">TRAILER</div>
+      <div class="gi-play"></div>
+      <div class="gi-ov"><div class="gi-type">TRAILER</div><div class="gi-label">Fly Mobas</div></div>
+    </div>
+    <div class="gi portrait">
+      <div class="gi-media" style="padding-top:150%;background:#1a1a1a;"></div>
+      <div class="mlabel">RECLAME</div>
+      <div class="gi-play"></div>
+      <div class="gi-ov"><div class="gi-type">RECLAME</div><div class="gi-label">Amazon Ads</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="sec-label">
+    <span class="s-num">003</span>
+    <span class="s-line"></span>
+    <span class="s-name">SERVICII</span>
+  </div>
+  <div class="svc-list">
+    <div class="svc-row">
+      <span class="sr-n">01</span>
+      <div class="sr-ico"><svg viewBox="0 0 64 64" fill="none"><rect x="4" y="12" width="40" height="28" rx="0" stroke="currentColor" stroke-width="2"/><path d="M44 22L60 14v24L44 30" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M4 50h56M16 50v6M48 50v6" stroke="currentColor" stroke-width="2" stroke-linecap="square"/></svg></div>
+      <div class="sr-body">
+        <h3>EDITARE VIDEO</h3>
+        <p>Montaj profesional, etalon de culoare, design sonor și grafică animată pentru orice format — de la corporate la cinematic.</p>
+        <div class="sr-tags"><span>COLOR GRADING</span><span>SOUND DESIGN</span><span>MOTION GRAPHICS</span></div>
+      </div>
+      <span class="sr-arr">→</span>
+    </div>
+    <div class="svc-row">
+      <span class="sr-n">02</span>
+      <div class="sr-ico"><svg viewBox="0 0 64 64" fill="none"><path d="M32 8L56 22v20L32 56 8 42V22L32 8Z" stroke="currentColor" stroke-width="2" stroke-linejoin="miter"/><path d="M32 8v48M8 22l24 14 24-14" stroke="currentColor" stroke-width="2" stroke-linecap="square"/></svg></div>
+      <div class="sr-body">
+        <h3>VIDEO 3D</h3>
+        <p>Animație 3D spectaculoasă, vizualizare de produs și integrare VFX care aduc viziunea ta la viață în trei dimensiuni.</p>
+        <div class="sr-tags"><span>3D ANIMAȚIE</span><span>VFX</span><span>VIZUALIZARE</span></div>
+      </div>
+      <span class="sr-arr">→</span>
+    </div>
+    <div class="svc-row">
+      <span class="sr-n">03</span>
+      <div class="sr-ico"><svg viewBox="0 0 64 64" fill="none"><rect x="18" y="4" width="28" height="56" rx="0" stroke="currentColor" stroke-width="2"/><rect x="28" y="48" width="8" height="8" stroke="currentColor" stroke-width="2"/><path d="M24 14h16M24 22h16M24 30h10" stroke="currentColor" stroke-width="2" stroke-linecap="square"/></svg></div>
+      <div class="sr-body">
+        <h3>EDITARE REELURI</h3>
+        <p>Reeluri verticale captivante și conținut short-form optimizat pentru Instagram, TikTok și YouTube Shorts.</p>
+        <div class="sr-tags"><span>INSTAGRAM</span><span>TIKTOK</span><span>YOUTUBE SHORTS</span></div>
+      </div>
+      <span class="sr-arr">→</span>
+    </div>
+    <div class="svc-row">
+      <span class="sr-n">04</span>
+      <div class="sr-ico"><svg viewBox="0 0 64 64" fill="none"><rect x="4" y="8" width="56" height="36" rx="0" stroke="currentColor" stroke-width="2"/><path d="M4 44h56v8H4z" stroke="currentColor" stroke-width="2"/><path d="M26 24l14-8v16l-14-8z" stroke="currentColor" stroke-width="2" stroke-linejoin="miter"/></svg></div>
+      <div class="sr-body">
+        <h3>CREARE TRAILERE</h3>
+        <p>Trailere cu impact maxim pentru filme, evenimente, jocuri și branduri care creează anticipație și engagement viral.</p>
+        <div class="sr-tags"><span>FILM TRAILERS</span><span>PROMO EVENTI</span><span>BRAND FILMS</span></div>
+      </div>
+      <span class="sr-arr">→</span>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+  <div class="sec-label">
+    <span class="s-num">004</span>
+    <span class="s-line"></span>
+    <span class="s-name">CUM LUCRĂM</span>
+  </div>
+  <div class="proc-grid">
+    <div class="pc">
+      <div class="pc-accent"></div>
+      <span class="pc-n">01</span>
+      <span class="pc-ico">💡</span>
+      <h4>BRIEF &amp; VIZIUNE</h4>
+      <p>Înțelegem obiectivele tale, audiența și direcția creativă printr-o sesiune de descoperire focusată.</p>
+    </div>
+    <div class="pc">
+      <div class="pc-accent"></div>
+      <span class="pc-n">02</span>
+      <span class="pc-ico">🎥</span>
+      <h4>PRODUCȚIE CREATIVĂ</h4>
+      <p>Concept, storyboard și capturarea tuturor materialelor creative de care are nevoie proiectul tău.</p>
+    </div>
+    <div class="pc">
+      <div class="pc-accent"></div>
+      <span class="pc-n">03</span>
+      <span class="pc-ico">✂️</span>
+      <h4>POST-PRODUCȚIE</h4>
+      <p>Montaj de precizie, etalon de culoare, VFX, randare 3D și design sonor care ridică conținutul.</p>
+    </div>
+    <div class="pc">
+      <div class="pc-accent"></div>
+      <span class="pc-n">04</span>
+      <span class="pc-ico">🚀</span>
+      <h4>LIVRARE &amp; SUPORT</h4>
+      <p>Video-uri finale în toate formatele necesare plus suport continuu pentru revizuiri și proiecte viitoare.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="sec-label">
+    <span class="s-num">005</span>
+    <span class="s-line"></span>
+    <span class="s-name">CONTACT</span>
+  </div>
+  <div class="ct-wrap">
+    <div class="ct-left">
+      <p class="ct-big">ÎNCEPE<br/>PROIECTUL<br/>TĂU<span class="ct-dot">.</span></p>
+      <p class="ct-sub">Răspundem în maxim 24 de ore cu o ofertă personalizată.</p>
+      <a href="tel:+37368787316" class="ct-link">
+        <span class="ctl-ico">☎</span>
+        <div><span class="ctl-l">SUNĂ / WHATSAPP</span><span class="ctl-v">+373 68 787 316</span></div>
+      </a>
+      <a href="https://t.me/+37368787316" class="ct-link">
+        <span class="ctl-ico">✈</span>
+        <div><span class="ctl-l">TELEGRAM</span><span class="ctl-v">+373 68 787 316</span></div>
+      </a>
+    </div>
+    <div class="ct-right">
+      <form novalidate>
+        <div class="fg"><input type="text" class="fi" placeholder=" " /><label class="fl">NUMELE TĂU</label></div>
+        <div class="fg"><input type="tel" class="fi" placeholder=" " /><label class="fl">TELEFON / WHATSAPP</label></div>
+        <div class="fg">
+          <select class="fi" style="appearance:none;">
+            <option value="" disabled selected></option>
+            <option>EDITARE VIDEO</option><option>VIDEO 3D</option>
+            <option>EDITARE REELURI</option><option>CREARE TRAILER</option>
+          </select>
+          <label class="fl">SERVICIU DORIT</label>
+        </div>
+        <div class="fg"><textarea class="fi" placeholder=" " rows="3"></textarea><label class="fl">SPUNE-NE DESPRE PROIECT</label></div>
+        <button type="submit" class="btn-primary" style="width:100%;justify-content:center;">TRIMITE MESAJ →</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <a href="#" class="n-logo">DSGNL<span style="color:#c8ff00;">STUDIO</span></a>
+  <p class="foot-copy">© 2026 DSGNL STUDIO — TOATE DREPTURILE REZERVATE</p>
+  <div class="foot-r">
+    <a href="tel:+37368787316">☎ +373 68 787 316</a>
+    <a href="https://t.me/+37368787316">✈ TELEGRAM</a>
+  </div>
+</footer>
+
+<!-- FLOATING PHONE -->
+<a href="tel:+37368787316" class="fp">
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+  +373 68 787 316
+</a>
+
+</body>
+</html>
