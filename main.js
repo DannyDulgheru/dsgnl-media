@@ -70,13 +70,19 @@ function initHero() {
   
   document.querySelectorAll('.stat-num').forEach(el => {
     const n = parseInt(el.dataset.n, 10);
-    const obj = { val: 0 };
+    const target = { value: 0 };
     ScrollTrigger.create({
-      trigger: el, start: 'top 85%', once: true,
-      onEnter() {
-        gsap.to(obj, {
-          val: n, duration: 2, ease: 'power2.out',
-          onUpdate() { el.textContent = Math.round(obj.val); }
+      trigger: el,
+      start: 'top 85%',
+      once: true,
+      onEnter: function() {
+        gsap.to(target, {
+          value: n,
+          duration: 2,
+          ease: 'power2.out',
+          onUpdate: function() {
+            el.textContent = Math.round(target.value);
+          }
         });
       }
     });
@@ -89,30 +95,31 @@ function initWork() {
   const allItems = document.querySelectorAll('.work-item');
   let expanded = false;
   
-  if (btn && allItems.length > 4) {
-    allItems.forEach((item, i) => {
-      if (i >= 4) {
-        item.style.display = 'none';
-        item.classList.add('work-hidden');
-      }
-    });
-    
-    btn.addEventListener('click', () => {
+  // Hide items 5-10 initially
+  allItems.forEach((item, i) => {
+    if (i >= 4) {
+      item.style.display = 'none';
+      item.classList.add('work-hidden');
+    }
+  });
+  
+  if (btn) {
+    btn.addEventListener('click', function() {
       expanded = !expanded;
-      const hidden = Array.from(allItems).filter((_, i) => i >= 4);
-      hidden.forEach((item, i) => {
-        if (expanded) {
-          item.style.display = 'block';
-          item.classList.remove('work-hidden');
-          gsap.fromTo(item, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.4, delay: i * 0.05 });
-          initVideoObserver([item]);
-        } else {
-          const vid = item.querySelector('video');
-          if (vid) vid.pause();
-          gsap.to(item, { opacity: 0, duration: 0.3, onComplete() {
-            item.style.display = 'none';
-            item.classList.add('work-hidden');
-          }});
+      allItems.forEach((item, i) => {
+        if (i >= 4) {
+          if (expanded) {
+            item.style.display = 'block';
+            item.classList.remove('work-hidden');
+            gsap.fromTo(item, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.4, delay: i * 0.05 });
+          } else {
+            const vid = item.querySelector('video');
+            if (vid) vid.pause();
+            gsap.to(item, { opacity: 0, duration: 0.3, onComplete: function() {
+              item.style.display = 'none';
+              item.classList.add('work-hidden');
+            }});
+          }
         }
       });
       btn.classList.toggle('expanded', expanded);
@@ -120,17 +127,21 @@ function initWork() {
     });
   }
   
-  const visibleItems = Array.from(allItems).filter((_, i) => i < 4);
-  initVideoObserver(visibleItems);
+  // Observe only first 4 items
+  initVideoObserver(document.querySelectorAll('.work-item:not(.work-hidden)'));
   
-  allItems.forEach(item => {
-    item.addEventListener('click', () => {
+  // Click handler for lightbox
+  allItems.forEach(function(item) {
+    item.addEventListener('click', function() {
       const vid = item.querySelector('video');
       const img = item.querySelector('img');
       const label = item.dataset.label;
       const type = item.dataset.type;
-      if (vid) openLightbox(vid.querySelector('source').getAttribute('src'), label, type);
-      else if (img && item.dataset.yt) openLightbox(null, label, type, item.dataset.yt);
+      if (vid) {
+        openLightbox(vid.querySelector('source').getAttribute('src'), label, type);
+      } else if (img && item.dataset.yt) {
+        openLightbox(null, label, type, item.dataset.yt);
+      }
     });
   });
 }
