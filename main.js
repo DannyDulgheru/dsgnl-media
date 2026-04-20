@@ -82,11 +82,53 @@ function initHero() {
   });
 }
 
-/* WORK - VIDEO OBSERVER */
+/* WORK - VIDEO OBSERVER & LOAD MORE */
 function initWork() {
-  const items = document.querySelectorAll('.work-item');
-  const isMobile = window.matchMedia('(max-width: 768px)').matches;
+  const btn = document.getElementById('loadMoreBtn');
+  const hiddenItems = document.querySelectorAll('.work-item.work-hidden');
+  let expanded = false;
   
+  if (btn && hiddenItems.length) {
+    btn.addEventListener('click', () => {
+      expanded = !expanded;
+      hiddenItems.forEach((item, i) => {
+        if (expanded) {
+          item.style.display = 'block';
+          item.classList.remove('work-hidden');
+          gsap.fromTo(item, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.4, delay: i * 0.05 });
+          initVideoObserver([item]);
+        } else {
+          const vid = item.querySelector('video');
+          if (vid) vid.pause();
+          gsap.to(item, { opacity: 0, duration: 0.3, onComplete() {
+            item.style.display = 'none';
+            item.classList.add('work-hidden');
+          }});
+        }
+      });
+      btn.classList.toggle('expanded', expanded);
+      btn.querySelector('span').textContent = expanded ? 'HIDE PROJECTS' : 'VIEW ALL PROJECTS';
+    });
+  }
+  
+  const items = document.querySelectorAll('.work-item:not(.work-hidden)');
+  initVideoObserver(items);
+  
+  items.forEach(item => {
+    item.addEventListener('click', () => {
+      const vid = item.querySelector('video');
+      const img = item.querySelector('img');
+      const label = item.dataset.label;
+      const type = item.dataset.type;
+      if (vid) openLightbox(vid.querySelector('source').getAttribute('src'), label, type);
+      else if (img && item.dataset.yt) openLightbox(null, label, type, item.dataset.yt);
+    });
+  });
+}
+
+function initVideoObserver(items) {
+  if (!items || !items.length) return;
+  const isMobile = window.matchMedia('(max-width: 768px)').matches;
   if (!isMobile) {
     const io = new IntersectionObserver(entries => {
       entries.forEach(e => {
@@ -107,17 +149,7 @@ function initWork() {
       else vid.addEventListener('loadeddata', () => { vid.currentTime = 0.1; }, { once: true });
     });
   }
-  
-  items.forEach(item => {
-    item.addEventListener('click', () => {
-      const vid = item.querySelector('video');
-      const img = item.querySelector('img');
-      const label = item.dataset.label;
-      const type = item.dataset.type;
-      if (vid) openLightbox(vid.querySelector('source').getAttribute('src'), label, type);
-      else if (img && item.dataset.yt) openLightbox(null, label, type, item.dataset.yt);
-    });
-  });
+}
 }
 
 /* SCROLL ANIMATIONS */

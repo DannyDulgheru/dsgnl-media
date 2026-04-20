@@ -349,6 +349,22 @@ body:hover .cursor { opacity: 1; }
   font-size: 0.875rem;
   font-weight: 600;
 }
+.work-hidden { display: none; }
+.work-load-more {
+  display: flex; align-items: center; justify-content: center; gap: 12px;
+  margin: 40px auto 0;
+  padding: 16px 32px;
+  font-size: 0.75rem; font-weight: 600;
+  letter-spacing: 0.15em; text-transform: uppercase;
+  background: transparent; border: 1px solid var(--border);
+  color: var(--text); border-radius: 4px;
+  cursor: pointer; transition: all 0.3s var(--ease);
+}
+.work-load-more:hover {
+  border-color: var(--accent); color: var(--accent);
+}
+.work-load-more svg { transition: transform 0.3s; }
+.work-load-more.expanded svg { transform: rotate(180deg); }
 @media (max-width: 1024px) {
   .work-grid { grid-template-columns: repeat(2, 1fr); }
   .work-item:nth-child(4), .work-item:nth-child(7) { grid-column: span 1; aspect-ratio: 16/10; }
