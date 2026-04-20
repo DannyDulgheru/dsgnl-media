@@ -70,12 +70,13 @@ function initHero() {
   
   document.querySelectorAll('.stat-num').forEach(el => {
     const n = parseInt(el.dataset.n, 10);
+    const obj = { val: 0 };
     ScrollTrigger.create({
       trigger: el, start: 'top 85%', once: true,
       onEnter() {
-        gsap.to({ v: 0 }, {
-          v: n, duration: 2, ease: 'power2.out',
-          onUpdate() { el.textContent = Math.round(this.targets()[0].v); }
+        gsap.to(obj, {
+          val: n, duration: 2, ease: 'power2.out',
+          onUpdate() { el.textContent = Math.round(obj.val); }
         });
       }
     });
@@ -85,13 +86,21 @@ function initHero() {
 /* WORK - VIDEO OBSERVER & LOAD MORE */
 function initWork() {
   const btn = document.getElementById('loadMoreBtn');
-  const hiddenItems = document.querySelectorAll('.work-item.work-hidden');
+  const allItems = document.querySelectorAll('.work-item');
   let expanded = false;
   
-  if (btn && hiddenItems.length) {
+  if (btn && allItems.length > 4) {
+    allItems.forEach((item, i) => {
+      if (i >= 4) {
+        item.style.display = 'none';
+        item.classList.add('work-hidden');
+      }
+    });
+    
     btn.addEventListener('click', () => {
       expanded = !expanded;
-      hiddenItems.forEach((item, i) => {
+      const hidden = Array.from(allItems).filter((_, i) => i >= 4);
+      hidden.forEach((item, i) => {
         if (expanded) {
           item.style.display = 'block';
           item.classList.remove('work-hidden');
@@ -111,10 +120,10 @@ function initWork() {
     });
   }
   
-  const items = document.querySelectorAll('.work-item:not(.work-hidden)');
-  initVideoObserver(items);
+  const visibleItems = Array.from(allItems).filter((_, i) => i < 4);
+  initVideoObserver(visibleItems);
   
-  items.forEach(item => {
+  allItems.forEach(item => {
     item.addEventListener('click', () => {
       const vid = item.querySelector('video');
       const img = item.querySelector('img');
