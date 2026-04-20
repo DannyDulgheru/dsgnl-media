@@ -112,7 +112,11 @@ function initHeroSlider(){
 
 /* GALLERY */
 function initGallery(){
-  const items=document.querySelectorAll('.gi');
+  const container=document.querySelector('.g-cols');
+  const items=Array.from(document.querySelectorAll('.gi'));
+  const shuffled=items.sort(()=>Math.random()-0.5);
+  shuffled.forEach(item=>container.appendChild(item));
+  
   gsap.fromTo(items,{opacity:0,y:24},{
     opacity:1,y:0,duration:0.5,stagger:0.06,ease:'power2.out',
     scrollTrigger:{trigger:'#gallery',start:'top 78%'},
