@@ -5,35 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>DSGNL STUDIO — Video Production Moldova</title>
   <meta name="description" content="Studio de producție video profesional în Moldova. Editare video, animație 3D, reeluri. 120+ proiecte livrate."/>
-  <meta name="robots" content="index, follow"/>
   <link rel="canonical" href="https://studio.dsgnl.site/"/>
-  <meta property="og:type" content="website"/>
-  <meta property="og:url" content="https://studio.dsgnl.site/"/>
-  <meta property="og:title" content="DSGNL STUDIO — Video Production Moldova"/>
-  <meta property="og:description" content="Studio de producție video profesional în Moldova."/>
-  <meta property="og:locale" content="ro_MD"/>
+  
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  
   <link rel="stylesheet" href="style.css"/>
-
-  <!-- Facebook Pixel -->
-  <script>
-    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','609973363077997');fbq('track','PageView');
-  </script>
 </head>
 <body>
-
-<!-- CURSOR -->
-<div class="cursor" id="cursor"></div>
-
-<!-- FLOAT PHONE -->
-<a href="tel:+37368787316" class="float-phone">
-  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
-  <span>+373 68 787 316</span>
-</a>
 
 <!-- NAV -->
 <nav id="nav">
@@ -59,37 +40,58 @@
 
 <!-- HERO -->
 <section id="hero">
-  <div class="hero-bg">
-    <video id="heroVideo" muted loop playsinline autoplay preload="auto">
-      <source src="videos/JM3MR_ROBOTAI_16x9.webm" type="video/webm"/>
-    </video>
-    <div class="hero-overlay"></div>
-  </div>
-  <div class="hero-content">
-    <div class="hero-label">STUDIO — MOLDOVA — 2026</div>
-    <h1 class="hero-title">
-      <span>CREAM</span>
-      <span class="hero-title-accent">POVEȘTI</span>
-      <span>VIZUALE</span>
-    </h1>
-    <p class="hero-sub">Video Production · 3D Animation · Motion Design</p>
-    <div class="hero-cta">
-      <a href="#work" class="btn btn-primary">VIEW WORK</a>
-      <a href="#contact" class="btn btn-outline">GET QUOTE</a>
+  <div class="hero-container">
+    <div class="hero-left">
+      <div class="hero-label">STUDIO — MOLDOVA — 2026</div>
+      <h1 class="hero-title">
+        <span>We craft</span>
+        <span>visual stories</span>
+        <span>that sell.</span>
+      </h1>
+      <p class="hero-sub">Video Production · 3D Animation · Motion Design</p>
+      <div class="hero-cta">
+        <a href="#contact" class="btn btn-primary">GET QUOTE</a>
+        <a href="#work" class="btn btn-outline">VIEW WORK</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><span class="stat-num">120</span><span class="stat-sym">+</span><span class="stat-label">PROJECTS</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><span class="stat-num">5</span><span class="stat-sym">+</span><span class="stat-label">YEARS</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><span class="stat-num">98</span><span class="stat-sym">%</span><span class="stat-label">HAPPY</span></div>
+      </div>
+    </div>
+    
+    <div class="hero-right">
+      <div class="hero-grid">
+        <div class="hero-card" data-label="Robot AI" data-type="3D">
+          <video muted loop playsinline autoplay preload="auto"><source src="videos/JM3MR_ROBOTAI_16x9.webm" type="video/webm"/></video>
+          <div class="hero-card-info"><span>Robot AI</span><span class="hero-card-type">3D</span></div>
+        </div>
+        <div class="hero-card" data-label="Tourists" data-type="SOCIAL">
+          <video muted loop playsinline autoplay preload="auto"><source src="videos/SM 2 Tourists 9x16.webm" type="video/webm"/></video>
+          <div class="hero-card-info"><span>Tourists</span><span class="hero-card-type">SOCIAL</span></div>
+        </div>
+        <div class="hero-card" data-label="Sofa 3D" data-type="REEL">
+          <video muted loop playsinline autoplay preload="auto"><source src="videos/SM_Sofa3D_9x16.webm" type="video/webm"/></video>
+          <div class="hero-card-info"><span>Sofa 3D</span><span class="hero-card-type">REEL</span></div>
+        </div>
+      </div>
     </div>
   </div>
-  <div class="hero-stats">
-    <div class="stat"><span class="stat-num" data-n="120">0</span><span class="stat-sym">+</span><span class="stat-label">PROJECTS</span></div>
-    <div class="stat-divider"></div>
-    <div class="stat"><span class="stat-num" data-n="5">0</span><span class="stat-sym">+</span><span class="stat-label">YEARS</span></div>
-    <div class="stat-divider"></div>
-    <div class="stat"><span class="stat-num" data-n="98">0</span><span class="stat-sym">%</span><span class="stat-label">HAPPY</span></div>
-  </div>
-  <div class="hero-scroll">
-    <span>SCROLL</span>
-    <div class="scroll-line"></div>
-  </div>
 </section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+  <div class="lightbox-content">
+    <button class="lightbox-close" id="lightboxClose">[ CLOSE ]</button>
+    <div class="lightbox-title-wrap">
+      <span class="lightbox-title"></span>
+      <span class="lightbox-type"></span>
+    </div>
+    <video id="lightboxVideo" controls playsinline></video>
+  </div>
+</div>
 
 <!-- ABOUT -->
 <section id="about">
@@ -100,8 +102,8 @@
     </div>
     <div class="about-text">
       <div class="section-num">01 / ABOUT</div>
-      <h2>ONE VISION.<br/><em>EXCEPTIONAL</em><br/>RESULTS.</h2>
-      <p>We are a premium video production studio in Moldova, led by a single creator with a clear vision and passion for visual storytelling. Every project is treated as a work of art — with precision, emotion, and guaranteed impact.</p>
+      <h2>One vision.<br/><em>Exceptional</em><br/>results.</h2>
+      <p>We're a premium video production studio in Moldova, led by a single creator with a clear vision and passion for visual storytelling. Every project is treated as a work of art — with precision, emotion, and guaranteed impact.</p>
       <p>From cinematic video editing to 3D animation and viral reels, we transform your ideas into content that sells, inspires, and lasts.</p>
       <a href="#contact" class="btn btn-primary">LET'S WORK TOGETHER</a>
     </div>
@@ -112,98 +114,96 @@
 <section id="work">
   <div class="work-header">
     <div class="section-num">02 / WORK</div>
-    <h2>SELECTED<br/><em>PROJECTS</em></h2>
+    <h2>Selected<br/><em>Projects</em></h2>
   </div>
-  <div class="work-grid">
-    <div class="work-item" data-label="Robot AI" data-type="3D PRODUCTION">
-      <video muted loop playsinline autoplay preload="auto"><source src="videos/JM3MR_ROBOTAI_16x9.webm" type="video/webm"/></video>
-      <div class="work-info"><span class="work-type">3D PRODUCTION</span><span class="work-name">Robot AI</span></div>
-    </div>
-    <div class="work-item" data-label="Tourists" data-type="SOCIAL MEDIA">
-      <video muted loop playsinline autoplay preload="auto"><source src="videos/SM 2 Tourists 9x16.webm" type="video/webm"/></video>
-      <div class="work-info"><span class="work-type">SOCIAL MEDIA</span><span class="work-name">Tourists</span></div>
-    </div>
-    <div class="work-item" data-label="Christmas Ball" data-type="MOTION DESIGN">
-      <video muted loop playsinline autoplay preload="auto"><source src="videos/JM3MR_CHRISTMAS_BALL_16x9.webm" type="video/webm"/></video>
-      <div class="work-info"><span class="work-type">MOTION DESIGN</span><span class="work-name">Christmas Ball</span></div>
-    </div>
-    <div class="work-item" data-label="Sofa 3D" data-type="REEL 3D">
-      <video muted loop playsinline autoplay preload="auto"><source src="videos/SM_Sofa3D_9x16.webm" type="video/webm"/></video>
-      <div class="work-info"><span class="work-type">REEL 3D</span><span class="work-name">Sofa 3D</span></div>
-    </div>
-    <div class="work-item" data-label="Luggage" data-type="VIDEO EDITING">
-      <video muted loop playsinline preload="none"><source src="videos/luggage_1.webm" type="video/webm"/></video>
-      <div class="work-info"><span class="work-type">VIDEO EDITING</span><span class="work-name">Luggage</span></div>
-    </div>
-    <div class="work-item" data-label="Amazon Ads" data-type="ADS">
-      <video muted loop playsinline preload="none"><source src="videos/SM Amazon Type Ads 9x16.webm" type="video/webm"/></video>
-      <div class="work-info"><span class="work-type">ADS</span><span class="work-name">Amazon Ads</span></div>
-    </div>
-    <div class="work-item" data-label="Fly Mobas" data-type="TRAILER">
-      <video muted loop playsinline preload="none"><source src="videos/sm fly mobas.webm" type="video/webm"/></video>
-      <div class="work-info"><span class="work-type">TRAILER</span><span class="work-name">Fly Mobas</span></div>
-    </div>
-    <div class="work-item" data-label="Weather" data-type="SOCIAL MEDIA">
-      <video muted loop playsinline preload="none"><source src="videos/SM Weather 9x16.webm" type="video/webm"/></video>
-      <div class="work-info"><span class="work-type">SOCIAL MEDIA</span><span class="work-name">Weather App</span></div>
-    </div>
-    <div class="work-item" data-label="Main Book 2" data-type="SHOWREEL">
-      <video muted loop playsinline preload="none"><source src="videos/MAIN BOOK 2.webm" type="video/webm"/></video>
-      <div class="work-info"><span class="work-type">SHOWREEL</span><span class="work-name">Main Book 2</span></div>
-    </div>
-    <div class="work-item" data-label="Showreel" data-type="SHOWREEL" data-yt="spZr7vSiKl4">
-      <img src="https://img.youtube.com/vi/spZr7vSiKl4/maxresdefault.jpg" alt="Showreel"/>
-      <div class="work-info"><span class="work-type">SHOWREEL</span><span class="work-name">DSGNL Showreel</span></div>
+  
+  <div class="work-marquee">
+    <div class="work-track" id="workTrack">
+      <div class="work-item" data-label="Robot AI" data-type="3D PRODUCTION">
+        <video muted loop playsinline autoplay preload="auto"><source src="videos/JM3MR_ROBOTAI_16x9.webm" type="video/webm"/></video>
+        <div class="work-overlay"><span class="work-type">3D PRODUCTION</span><span class="work-name">Robot AI</span></div>
+      </div>
+      <div class="work-item" data-label="Tourists" data-type="SOCIAL MEDIA">
+        <video muted loop playsinline autoplay preload="auto"><source src="videos/SM 2 Tourists 9x16.webm" type="video/webm"/></video>
+        <div class="work-overlay"><span class="work-type">SOCIAL MEDIA</span><span class="work-name">Tourists</span></div>
+      </div>
+      <div class="work-item" data-label="Christmas Ball" data-type="MOTION DESIGN">
+        <video muted loop playsinline autoplay preload="auto"><source src="videos/JM3MR_CHRISTMAS_BALL_16x9.webm" type="video/webm"/></video>
+        <div class="work-overlay"><span class="work-type">MOTION DESIGN</span><span class="work-name">Christmas Ball</span></div>
+      </div>
+      <div class="work-item" data-label="Sofa 3D" data-type="REEL 3D">
+        <video muted loop playsinline autoplay preload="auto"><source src="videos/SM_Sofa3D_9x16.webm" type="video/webm"/></video>
+        <div class="work-overlay"><span class="work-type">REEL 3D</span><span class="work-name">Sofa 3D</span></div>
+      </div>
+      <div class="work-item" data-label="Luggage" data-type="VIDEO EDITING">
+        <video muted loop playsinline autoplay preload="auto"><source src="videos/luggage_1.webm" type="video/webm"/></video>
+        <div class="work-overlay"><span class="work-type">VIDEO EDITING</span><span class="work-name">Luggage</span></div>
+      </div>
+      <div class="work-item" data-label="Amazon Ads" data-type="ADS">
+        <video muted loop playsinline autoplay preload="auto"><source src="videos/SM Amazon Type Ads 9x16.webm" type="video/webm"/></video>
+        <div class="work-overlay"><span class="work-type">ADS</span><span class="work-name">Amazon Ads</span></div>
+      </div>
+      <div class="work-item" data-label="Fly Mobas" data-type="TRAILER">
+        <video muted loop playsinline autoplay preload="auto"><source src="videos/sm fly mobas.webm" type="video/webm"/></video>
+        <div class="work-overlay"><span class="work-type">TRAILER</span><span class="work-name">Fly Mobas</span></div>
+      </div>
+      <div class="work-item" data-label="Weather" data-type="SOCIAL MEDIA">
+        <video muted loop playsinline autoplay preload="auto"><source src="videos/SM Weather 9x16.webm" type="video/webm"/></video>
+        <div class="work-overlay"><span class="work-type">SOCIAL MEDIA</span><span class="work-name">Weather App</span></div>
+      </div>
+      <div class="work-item" data-label="Main Book 2" data-type="SHOWREEL">
+        <video muted loop playsinline autoplay preload="auto"><source src="videos/MAIN BOOK 2.webm" type="video/webm"/></video>
+        <div class="work-overlay"><span class="work-type">SHOWREEL</span><span class="work-name">Main Book 2</span></div>
+      </div>
     </div>
   </div>
-  <button class="work-load-more" id="loadMoreBtn">
-    <span>VIEW ALL PROJECTS</span>
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
-  </button>
 </section>
 
 <!-- SERVICES -->
 <section id="services">
-  <div class="services-header">
-    <div class="section-num">03 / SERVICES</div>
-    <h2>WHAT<br/><em>WE DO</em></h2>
-  </div>
-  <div class="services-grid">
-    <div class="service-card">
-      <div class="service-num">01</div>
-      <div class="service-icon">
-        <svg viewBox="0 0 48 48" fill="none"><rect x="4" y="12" width="40" height="24" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M4 36h40M12 36v8M36 36v8" stroke="currentColor" stroke-width="1.5"/></svg>
-      </div>
-      <h3>VIDEO EDITING</h3>
-      <p>Professional editing, color grading, sound design and motion graphics for any format.</p>
-      <div class="service-tags"><span>COLOR GRADING</span><span>SOUND DESIGN</span></div>
+  <div class="services-container">
+    <div class="services-header">
+      <div class="section-num">03 / SERVICES</div>
+      <h2>What<br/><em>We Do</em></h2>
     </div>
-    <div class="service-card">
-      <div class="service-num">02</div>
-      <div class="service-icon">
-        <svg viewBox="0 0 48 48" fill="none"><path d="M24 4L44 16v16L24 44 4 32V16L24 4z" stroke="currentColor" stroke-width="1.5"/><circle cx="24" cy="24" r="6" stroke="currentColor" stroke-width="1.5"/></svg>
+    
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-num">01</div>
+        <div class="service-icon">
+          <svg viewBox="0 0 48 48" fill="none"><rect x="4" y="12" width="40" height="24" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M4 36h40M12 36v8M36 36v8" stroke="currentColor" stroke-width="1.5"/></svg>
+        </div>
+        <h3>VIDEO EDITING</h3>
+        <p>Professional editing, color grading, sound design and motion graphics for any format.</p>
+        <div class="service-tags"><span>COLOR GRADING</span><span>SOUND DESIGN</span></div>
       </div>
-      <h3>3D PRODUCTION</h3>
-      <p>Stunning 3D animation, product visualization and VFX that brings your vision to life.</p>
-      <div class="service-tags"><span>3D ANIMATION</span><span>VFX</span></div>
-    </div>
-    <div class="service-card">
-      <div class="service-num">03</div>
-      <div class="service-icon">
-        <svg viewBox="0 0 48 48" fill="none"><rect x="14" y="4" width="20" height="40" rx="2" stroke="currentColor" stroke-width="1.5"/><rect x="20" y="36" width="8" height="6" stroke="currentColor" stroke-width="1.5"/></svg>
+      <div class="service-card">
+        <div class="service-num">02</div>
+        <div class="service-icon">
+          <svg viewBox="0 0 48 48" fill="none"><path d="M24 4L44 16v16L24 44 4 32V16L24 4z" stroke="currentColor" stroke-width="1.5"/><circle cx="24" cy="24" r="6" stroke="currentColor" stroke-width="1.5"/></svg>
+        </div>
+        <h3>3D PRODUCTION</h3>
+        <p>Stunning 3D animation, product visualization and VFX that brings your vision to life.</p>
+        <div class="service-tags"><span>3D ANIMATION</span><span>VFX</span></div>
       </div>
-      <h3>REEL Editing</h3>
-      <p>Engaging vertical reels optimized for Instagram, TikTok and YouTube Shorts.</p>
-      <div class="service-tags"><span>INSTAGRAM</span><span>TIKTOK</span></div>
-    </div>
-    <div class="service-card">
-      <div class="service-num">04</div>
-      <div class="service-icon">
-        <svg viewBox="0 0 48 48" fill="none"><rect x="4" y="8" width="40" height="28" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M4 36h40v6H4z" fill="currentColor" fill-opacity="0.2"/><path d="M18 18l12-8v16l-12-8z" stroke="currentColor" stroke-width="1.5"/></svg>
+      <div class="service-card">
+        <div class="service-num">03</div>
+        <div class="service-icon">
+          <svg viewBox="0 0 48 48" fill="none"><rect x="14" y="4" width="20" height="40" rx="2" stroke="currentColor" stroke-width="1.5"/><rect x="20" y="36" width="8" height="6" stroke="currentColor" stroke-width="1.5"/></svg>
+        </div>
+        <h3>REEL EDITING</h3>
+        <p>Engaging vertical reels optimized for Instagram, TikTok and YouTube Shorts.</p>
+        <div class="service-tags"><span>INSTAGRAM</span><span>TIKTOK</span></div>
       </div>
-      <h3>TRAILER CREATION</h3>
-      <p>High-impact trailers for films, events, games and brands that drive anticipation.</p>
-      <div class="service-tags"><span>FILM TRAILERS</span><span>PROMO</span></div>
+      <div class="service-card">
+        <div class="service-num">04</div>
+        <div class="service-icon">
+          <svg viewBox="0 0 48 48" fill="none"><rect x="4" y="8" width="40" height="28" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M4 36h40v6H4z" fill="currentColor" fill-opacity="0.2"/><path d="M18 18l12-8v16l-12-8z" stroke="currentColor" stroke-width="1.5"/></svg>
+        </div>
+        <h3>TRAILER CREATION</h3>
+        <p>High-impact trailers for films, events, games and brands that drive anticipation.</p>
+        <div class="service-tags"><span>FILM TRAILERS</span><span>PROMO</span></div>
+      </div>
     </div>
   </div>
 </section>
@@ -212,7 +212,7 @@
 <section id="process">
   <div class="process-header">
     <div class="section-num">04 / PROCESS</div>
-    <h2>HOW<br/><em>WE WORK</em></h2>
+    <h2>How<br/><em>We Work</em></h2>
   </div>
   <div class="process-steps">
     <div class="process-step">
@@ -255,7 +255,7 @@
   <div class="contact-grid">
     <div class="contact-info">
       <div class="section-num">05 / CONTACT</div>
-      <h2>START YOUR<br/><em>PROJECT.</em></h2>
+      <h2>Start your<br/><em>Project.</em></h2>
       <p>We respond within 24 hours with a personalized quote.</p>
       <div class="contact-channels">
         <a href="tel:+37368787316" class="contact-channel">
@@ -317,18 +317,6 @@
     </div>
   </div>
 </footer>
-
-<!-- LIGHTBOX -->
-<div class="lightbox" id="lightbox">
-  <div class="lightbox-content">
-    <button class="lightbox-close" id="lightboxClose">[ CLOSE ]</button>
-    <div class="lightbox-title-wrap">
-      <span class="lightbox-title"></span>
-      <span class="lightbox-type"></span>
-    </div>
-    <video id="lightboxVideo" controls playsinline></video>
-  </div>
-</div>
 
 <script src="main.js"></script>
 </body>
